@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Request an appointment at In Good Health — Primary Care in Chattanooga, TN. Call (423) 867-4969 or fill out our request form." />
+  <title>Book an Appointment · In Good Health · Chattanooga, TN</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --sage:#2E86C1;--sage-mid:#5BA3D0;--sage-light:#A8D4F0;--sage-pale:#EAF4FB;
+      --sage-dark:#0E4D7A;--peach:#D4845A;--peach-light:#F5CBB4;--peach-pale:#FDF3EC;
+      --gold:#B8952E;--gold-light:#ECD98A;--cream:#F8F5F0;--linen:#E3EFF8;
+      --bark:#6B5744;--ink:#252525;--mist:#8A9E90;--border:#DDD8D0;
+      --ff-display:'DM Serif Display',Georgia,serif;--ff-serif:'Playfair Display',Georgia,serif;--ff-sans:'DM Sans',system-ui,sans-serif;
+      --shadow-sm:0 2px 10px rgba(0,0,0,0.07);--shadow-md:0 4px 22px rgba(62,94,66,0.10);
+      --r-sm:6px;--r-md:14px;--r-lg:28px;--r-xl:56px;--max-w:1140px;--gutter:clamp(20px,5vw,60px);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{font-family:var(--ff-sans);background:var(--cream);color:var(--ink);overflow-x:hidden;line-height:1.65;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none} img{display:block;max-width:100%} ul{list-style:none}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.in{opacity:1;transform:none}
+    #progress{position:fixed;top:0;left:0;height:2px;background:var(--sage);z-index:9999;width:0;transition:width .1s linear}
+    .btn{display:inline-block;border-radius:40px;font-family:var(--ff-sans);font-size:.84rem;font-weight:500;letter-spacing:.03em;padding:11px 24px;cursor:pointer;border:none;transition:background .2s,transform .15s;text-align:center}
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{background:var(--sage-dark);color:#fff;width:100%;padding:14px;font-size:.92rem}.btn-primary:hover{background:var(--sage)}
+    .btn-ghost{background:transparent;color:var(--sage-dark);border:1.5px solid var(--sage-light)}.btn-ghost:hover{border-color:var(--sage-dark);background:var(--sage-pale)}
+    .btn-peach{background:var(--peach);color:#fff}.btn-peach:hover{background:#c0714a}
+    /* Nav */
+    .topbar{background:var(--sage-dark);color:rgba(255,255,255,.78);font-size:.74rem;letter-spacing:.04em;padding:8px var(--gutter);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+    .topbar a{color:var(--gold-light)}.topbar a:hover{text-decoration:underline}
+    nav{background:var(--cream);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200}
+    .nav-inner{max-width:var(--max-w);margin:0 auto;padding:0 var(--gutter);display:flex;align-items:center;justify-content:space-between;height:64px;gap:20px}
+    .nav-brand{display:flex;flex-direction:column;line-height:1.15}
+    .nav-links{display:flex;align-items:center;gap:22px}
+    .nav-links a{font-size:.82rem;color:var(--ink);transition:color .2s}.nav-links a:hover{color:var(--sage-dark)}
+    .nav-links .cta{background:var(--sage-dark);color:#fff!important;padding:8px 18px;border-radius:40px;font-weight:500}.nav-links .cta:hover{background:var(--sage)}
+    .nav-active{color:var(--sage-dark)!important;font-weight:500;border-bottom:2px solid var(--sage-light)}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+    .hamburger span{width:22px;height:2px;background:var(--ink);border-radius:2px;display:block}
+    .nav-drawer{display:none;position:fixed;inset:0;background:var(--cream);z-index:300;flex-direction:column;align-items:center;justify-content:center;gap:26px}
+    .nav-drawer.open{display:flex}
+    .nav-drawer a{font-family:var(--ff-serif);font-size:1.65rem;color:var(--sage-dark)}
+    .drawer-close{position:absolute;top:18px;right:22px;font-size:1.5rem;cursor:pointer;background:none;border:none;color:var(--bark)}
+    .drawer-contact{font-size:.82rem;color:var(--mist);text-align:center;margin-top:6px}
+    /* Layout */
+    .appt-page{padding:clamp(36px,5vw,64px) var(--gutter)}
+    .appt-grid{max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:1fr 1.5fr;gap:48px;align-items:start}
+    /* Left panel */
+    .appt-info h1{font-family:var(--ff-display);font-size:clamp(1.8rem,3.5vw,2.8rem);color:var(--sage-dark);line-height:1.1;margin-bottom:12px}
+    .appt-info .lead{font-size:.96rem;color:var(--bark);font-weight:300;line-height:1.8;margin-bottom:28px}
+    .call-card{background:var(--sage-dark);color:#fff;border-radius:var(--r-md);padding:22px 24px;margin-bottom:20px}
+    .call-card .label{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;opacity:.72;margin-bottom:6px}
+    .call-card .number{font-family:var(--ff-display);font-size:1.9rem;margin-bottom:6px}
+    .call-card .note{font-size:.8rem;opacity:.65;line-height:1.5}
+    .call-card a{color:#fff;text-decoration:none}
+    .info-list{display:flex;flex-direction:column;gap:12px;margin-bottom:24px}
+    .info-row{background:#fff;border:1px solid var(--border);border-radius:var(--r-md);padding:14px 18px;display:flex;align-items:flex-start;gap:14px}
+    .info-row .icon{font-size:1.2rem;width:26px;flex-shrink:0}
+    .info-row .label{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mist);margin-bottom:2px}
+    .info-row .value{font-size:.88rem;color:var(--ink)}
+    .new-patient-note{background:var(--peach-pale);border-left:3px solid var(--peach-light);border-radius:var(--r-sm);padding:14px 18px;font-size:.82rem;color:var(--bark);line-height:1.65}
+    /* Form panel */
+    .form-card{background:#fff;border:1px solid var(--border);border-radius:var(--r-lg);padding:36px;box-shadow:var(--shadow-sm)}
+    .form-card h2{font-family:var(--ff-display);font-size:1.4rem;color:var(--sage-dark);margin-bottom:6px}
+    .form-card .subtitle{font-size:.82rem;color:var(--mist);margin-bottom:24px}
+    .form-group{margin-bottom:14px}
+    .form-group label{display:block;font-size:.74rem;color:var(--bark);font-weight:500;margin-bottom:5px;letter-spacing:.03em}
+    .form-group input,.form-group select,.form-group textarea{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:var(--r-sm);font-family:var(--ff-sans);font-size:.86rem;color:var(--ink);background:#fff;outline:none;transition:border-color .2s}
+    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--sage-mid)}
+    .form-group input.error,.form-group select.error{border-color:var(--peach)}
+    .form-group textarea{resize:vertical;min-height:90px}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .form-section-label{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mist);margin:20px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+    .form-note{font-size:.7rem;color:var(--mist);margin-top:10px;line-height:1.55}
+    .form-success{display:none;text-align:center;padding:24px 0}
+    .form-success.show{display:block}
+    .form-success .check{font-size:3rem;margin-bottom:12px}
+    .form-success h3{font-family:var(--ff-display);font-size:1.4rem;color:var(--sage-dark);margin-bottom:8px}
+    .form-success p{font-size:.88rem;color:var(--bark);line-height:1.7;margin-bottom:16px}
+    /* Footer */
+    .disclaimer{background:var(--sage-pale);border-top:1px solid var(--sage-light);padding:12px var(--gutter);text-align:center;font-size:.7rem;color:var(--mist)}
+    footer{background:var(--ink);color:rgba(255,255,255,.52);padding:44px var(--gutter) 26px}
+    .footer-inner{max-width:var(--max-w);margin:0 auto}
+    .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:20px}
+    .footer-brand{font-family:var(--ff-display);font-size:1.25rem;color:#fff;margin-bottom:7px}
+    .footer-about{font-size:.78rem;line-height:1.65;max-width:210px}
+    .footer-col h4{color:rgba(255,255,255,.78);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
+    .footer-col li{margin-bottom:8px}.footer-col a{font-size:.78rem;transition:color .2s}.footer-col a:hover{color:#fff}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;font-size:.7rem}
+    @media(max-width:900px){.appt-grid{grid-template-columns:1fr}.footer-top{grid-template-columns:1fr 1fr}}
+    @media(max-width:600px){.topbar-right{display:none}.nav-links{display:none}.hamburger{display:flex}.form-row{grid-template-columns:1fr}.form-card{padding:24px}.footer-top{grid-template-columns:1fr}.footer-bottom{flex-direction:column;text-align:center}}
+  
+    .nav-logo-img { height: 42px; width: auto; display: block; object-fit: contain; }
+    .nav-brand { display: flex; align-items: center; padding: 3px 0; }
+  </style>
+</head>
+<body>
+<div id="progress" aria-hidden="true"></div>
+
+<div class="nav-drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <button class="drawer-close" id="drawerClose" aria-label="Close menu">✕</button>
+  <a href="index.html">Home</a><a href="team.html">Our Team</a><a href="appointment.html">Book Appointment</a><p class="drawer-contact">1508 Tombras Ave · Chattanooga, TN 37412<br />(423) 867-4969</p>
+</div>
+
+<div class="topbar">
+  <span>🌿 May is Mental Health Awareness Month — speak to your provider</span>
+  <span class="topbar-right"><a href="tel:4238674969">(423) 867-4969</a> &nbsp;·&nbsp; 1508 Tombras Ave, Chattanooga TN</span>
+</div>
+
+<nav aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMjAgNTIiIHdpZHRoPSIyMjAiIGhlaWdodD0iNTIiPgogIDwhLS0gTWVkaWNhbCBjcm9zcyBpY29uIC0tPgogIDxyZWN0IHg9IjYiIHk9IjE2IiB3aWR0aD0iNiIgaGVpZ2h0PSIyMCIgcng9IjEuNSIgZmlsbD0iIzFBNkZBOCIvPgogIDxyZWN0IHg9IjAiIHk9IjIyIiB3aWR0aD0iMTgiIGhlaWdodD0iOCIgcng9IjEuNSIgZmlsbD0iIzFBNkZBOCIvPgogIDwhLS0gQnJhbmQgbmFtZSAtLT4KICA8dGV4dCB4PSIyNiIgeT0iMjIiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCBzZXJpZiIgZm9udC1zaXplPSIxMyIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiMxQTZGQTgiIGxldHRlci1zcGFjaW5nPSIwLjUiPklOIEdPT0QgSEVBTFRIPC90ZXh0PgogIDx0ZXh0IHg9IjI2IiB5PSIzNiIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsIHNlcmlmIiBmb250LXNpemU9IjguNSIgZmlsbD0iIzVCQTNEMCIgbGV0dGVyLXNwYWNpbmc9IjEuMiI+UFJJTUFSWSBDQVJFIMK3IENIQVRUQU5PT0dBPC90ZXh0Pgo8L3N2Zz4=" alt="In Good Health logo" class="nav-logo-img" /></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="team.html">Our Team</a>
+      <a href="appointment.html" class="nav-active cta" aria-current="page">Book Appointment</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="appt-page">
+  <div class="appt-grid">
+
+    <!-- Left: Info -->
+    <div class="reveal">
+      <p style="font-size:.72rem;color:var(--mist);margin-bottom:16px"><a href="index.html" style="color:var(--sage-dark)">Home</a> › Book Appointment</p>
+      <div class="appt-info">
+        <h1>Request an Appointment</h1>
+        <p class="lead">We're glad you're here. The fastest way to schedule is to call us directly — our team will find a time that works for you. You can also submit a request below and we'll follow up within one business day.</p>
+      </div>
+
+      <div class="call-card">
+        <div class="label">Fastest Option — Call Us</div>
+        <div class="number"><a href="tel:4238674969">(423) 867-4969</a></div>
+        <div class="note">Our team is available during office hours to schedule your visit and answer any questions about our services.</div>
+      </div>
+
+      <div class="info-list">
+        <div class="info-row">
+          <span class="icon">📍</span>
+          <div><div class="label">Location</div><div class="value">1508 Tombras Ave, Chattanooga, TN 37412</div></div>
+        </div>
+        <div class="info-row">
+          <span class="icon">👥</span>
+          <div><div class="label">Providers</div><div class="value">Dr. Pendley · Dr. Heisser · Dr. Davis · Melissa Rader, FNP</div></div>
+        </div>
+        <div class="info-row">
+          <span class="icon">🩺</span>
+          <div><div class="label">Services</div><div class="value">Primary Care · Hormone Therapy · Weight Loss · Stem Cell · Aesthetics</div></div>
+        </div>
+        <div class="info-row">
+          <span class="icon">🆘</span>
+          <div><div class="label">Emergencies</div><div class="value">For medical emergencies, call 911 or go to your nearest ER</div></div>
+        </div>
+      </div>
+
+      <div class="new-patient-note">
+        <strong>New patient?</strong> Welcome. Please let us know in the form and we'll send you any intake paperwork ahead of your visit to make your first appointment smooth and efficient.
+      </div>
+    </div>
+
+    <!-- Right: Form -->
+    <div class="reveal" style="transition-delay:.15s">
+      <div class="form-card">
+        <div id="formWrap">
+          <h2>Appointment Request Form</h2>
+          <p class="subtitle">Fill out the form below and our team will contact you to confirm your visit.</p>
+
+          <p class="form-section-label">Your Information</p>
+          <div class="form-row">
+            <div class="form-group"><label for="f-first">First Name *</label><input type="text" id="f-first" placeholder="Jane" autocomplete="given-name" /></div>
+            <div class="form-group"><label for="f-last">Last Name *</label><input type="text" id="f-last" placeholder="Smith" autocomplete="family-name" /></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label for="f-phone">Phone Number *</label><input type="tel" id="f-phone" placeholder="(423) 555-0100" autocomplete="tel" /></div>
+            <div class="form-group"><label for="f-email">Email Address</label><input type="email" id="f-email" placeholder="jane@email.com" autocomplete="email" /></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="f-dob">Date of Birth</label>
+              <input type="date" id="f-dob" autocomplete="bday" />
+            </div>
+            <div class="form-group">
+              <label for="f-status">Patient Status *</label>
+              <select id="f-status">
+                <option value="">— select —</option>
+                <option>New patient</option>
+                <option>Existing patient</option>
+              </select>
+            </div>
+          </div>
+
+          <p class="form-section-label">Your Visit</p>
+          <div class="form-group">
+            <label for="f-service">Reason for Visit *</label>
+            <select id="f-service">
+              <option value="">— select a service —</option>
+              <option>New patient / Primary care</option>
+              <option>Annual wellness exam</option>
+              <option>Bio-identical hormone therapy (BIHT)</option>
+              <option>Medical weight loss</option>
+              <option>Allergy / Asthma management</option>
+              <option>Anxiety, depression or insomnia</option>
+              <option>Cardiovascular / Diabetes / Hypertension</option>
+              <option>Home medical care inquiry</option>
+              <option>Stem cell or peptide therapy consultation</option>
+              <option>Aesthetic services consultation</option>
+              <option>Other / General inquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="f-provider">Preferred Provider</label>
+            <select id="f-provider">
+              <option value="">No preference</option>
+              <option>Bruce Pendley, MD</option>
+              <option>Randy Heisser, MD</option>
+              <option>Dr. Laurie Davis, DNP, FNP</option>
+              <option>Melissa Rader, FNP</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="f-pref-day">Preferred Day</label>
+              <select id="f-pref-day">
+                <option value="">No preference</option>
+                <option>Monday</option><option>Tuesday</option><option>Wednesday</option>
+                <option>Thursday</option><option>Friday</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="f-pref-time">Preferred Time</label>
+              <select id="f-pref-time">
+                <option value="">No preference</option>
+                <option>Morning (8am–12pm)</option>
+                <option>Afternoon (12pm–4pm)</option>
+                <option>Late afternoon (4pm+)</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="f-notes">Additional Notes</label>
+            <textarea id="f-notes" placeholder="Anything else our team should know before your visit..."></textarea>
+          </div>
+
+          <button class="btn btn-primary" id="submitBtn" type="button" onclick="submitForm()">Submit Appointment Request</button>
+          <p class="form-note">* Required fields. This form submits a request — not a confirmed appointment. Our team will call or email to confirm your visit. For urgent matters, call <a href="tel:4238674969" style="color:var(--sage-dark)">(423) 867-4969</a>.</p>
+        </div>
+
+        <div class="form-success" id="formSuccess">
+          <div class="check">✅</div>
+          <h3>Request Received!</h3>
+          <p>Thank you — our team will contact you within one business day to confirm your appointment details.</p>
+          <p>If you need to reach us sooner, call <a href="tel:4238674969" style="color:var(--sage-dark);font-weight:500">(423) 867-4969</a>.</p>
+          <a href="index.html" class="btn btn-ghost" style="margin-top:8px">Back to Home</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="disclaimer" role="note">* In Good Health offers no guarantee of specific results and results may vary from patient to patient. For medical emergencies, call 911.</div>
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div><div class="footer-brand">In Good Health</div><p class="footer-about">Primary care and specialty health services for the Chattanooga community. 1508 Tombras Ave, Chattanooga TN 37412.</p></div>
+      <div class="footer-col"><h4>Pages</h4><ul><li><a href="index.html">Home</a></li><li></li><li><a href="team.html">Our Team</a></li><li><a href="appointment.html">Book Appointment</a></li><li></li></ul></div>
+      <div class="footer-col"><h4>Services</h4><ul><li><a href="index.html#primary-care">Primary Care</a></li><li><a href="index.html#hormones">Hormone Therapy</a></li><li><a href="index.html#weight-loss">Medical Weight Loss</a></li><li><a href="index.html#stem-cell">Stem Cell & Peptide</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul><li><a href="tel:4238674969">(423) 867-4969</a></li><li><a href="team.html">Meet the Team</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 In Good Health · 1508 Tombras Ave, Chattanooga, TN 37412</span><span>In Good Health · All Rights Reserved</span></div>
+  </div>
+</footer>
+
+<script>
+  const prog=document.getElementById('progress');
+  window.addEventListener('scroll',()=>{const d=document.documentElement;prog.style.width=(d.scrollTop/(d.scrollHeight-d.clientHeight)*100)+'%'},{passive:true});
+  const ro=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+  const drawer=document.getElementById('drawer'),ham=document.getElementById('hamburger');
+  document.getElementById('drawerClose').addEventListener('click',()=>{drawer.classList.remove('open');ham.setAttribute('aria-expanded','false');document.body.style.overflow=''});
+  ham.addEventListener('click',()=>{drawer.classList.add('open');ham.setAttribute('aria-expanded','true');document.body.style.overflow='hidden'});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){drawer.classList.remove('open');document.body.style.overflow=''}});
+  document.querySelectorAll('.nav-drawer a').forEach(a=>a.addEventListener('click',()=>{drawer.classList.remove('open');document.body.style.overflow=''}));
+
+  function submitForm() {
+    const first = document.getElementById('f-first');
+    const phone = document.getElementById('f-phone');
+    const status = document.getElementById('f-status');
+    const service = document.getElementById('f-service');
+    let valid = true;
+    [first, phone, status, service].forEach(el => {
+      if (!el.value.trim()) { el.classList.add('error'); valid = false; }
+      else el.classList.remove('error');
+    });
+    if (!valid) { alert('Please fill in all required fields marked with *.'); return; }
+    document.getElementById('formWrap').style.display = 'none';
+    document.getElementById('formSuccess').classList.add('show');
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+</script>
+</body>
+</html>
