@@ -3,449 +3,234 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="In Good Health — Primary Care in Chattanooga, TN. Patient-centered care combining excellent service with a modern approach. May 2026 wellness focus: spring renewal, mental health, outdoor fitness." />
-  <title>In Good Health · Primary Care Chattanooga, TN</title>
+  <meta name="description" content="In Good Health — Primary Care in Chattanooga, TN. Patient-centered care combining excellent service with a modern approach. Call (423) 867-4969." />
+  <title>In Good Health · Primary Care · Chattanooga, TN</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --sage:        #2E86C1;
-      --sage-mid:    #5BA3D0;
-      --sage-light:  #A8D4F0;
-      --sage-pale:   #EAF4FB;
-      --sage-dark:   #0E4D7A;
-      --peach:       #D4845A;
-      --peach-light: #F5CBB4;
-      --peach-pale:  #FDF3EC;
-      --gold:        #B8952E;
-      --gold-light:  #ECD98A;
-      --cream:       #F8F5F0;
-      --linen:       #E3EFF8;
-      --bark:        #6B5744;
-      --ink:         #252525;
-      --mist:        #8A9E90;
-      --border:      #DDD8D0;
-      --ff-display:  'DM Serif Display', Georgia, serif;
-      --ff-serif:    'Playfair Display', Georgia, serif;
-      --ff-sans:     'DM Sans', system-ui, sans-serif;
-      --shadow-xs:   0 1px 4px rgba(0,0,0,0.06);
-      --shadow-sm:   0 2px 10px rgba(0,0,0,0.07);
-      --shadow-md:   0 4px 22px rgba(62,94,66,0.10);
-      --r-sm: 6px; --r-md: 14px; --r-lg: 28px; --r-xl: 56px;
-      --max-w: 1140px;
-      --gutter: clamp(20px, 5vw, 60px);
+      --blue:       #0E4D7A;
+      --blue-mid:   #2E86C1;
+      --blue-light: #A8D4F0;
+      --blue-pale:  #EAF4FB;
+      --peach:      #D4845A;
+      --peach-pale: #FDF3EC;
+      --gold:       #B8952E;
+      --cream:      #F8F5F0;
+      --linen:      #E3EFF8;
+      --ink:        #252525;
+      --bark:       #6B5744;
+      --mist:       #8A9EA8;
+      --border:     #DDD8D0;
+      --ff-display: 'DM Serif Display', Georgia, serif;
+      --ff-sans:    'DM Sans', system-ui, sans-serif;
+      --max-w:      1100px;
+      --pad:        clamp(20px, 5vw, 64px);
+      --radius:     14px;
+      --shadow:     0 4px 22px rgba(14,77,122,0.10);
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; font-size: 16px; }
-    body {
-      font-family: var(--ff-sans);
-      background: var(--cream);
-      color: var(--ink);
-      overflow-x: hidden;
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--ff-sans); background: var(--cream); color: var(--ink); overflow-x: hidden; line-height: 1.65; -webkit-font-smoothing: antialiased; }
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; }
     ul { list-style: none; }
-    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border-width:0; }
 
-    /* Scroll reveal */
-    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    /* Utilities */
+    .container { max-width: var(--max-w); margin: 0 auto; }
+    .eyebrow { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--peach); font-weight: 500; margin-bottom: 8px; }
+    .section-title { font-family: var(--ff-display); font-size: clamp(1.7rem, 3vw, 2.6rem); color: var(--blue); line-height: 1.15; margin-bottom: 14px; }
+    .section-title em { color: var(--peach); font-style: italic; }
+    .section-body { font-size: 0.94rem; color: var(--bark); font-weight: 300; line-height: 1.8; max-width: 500px; }
+    .divider { width: 36px; height: 2px; background: var(--blue-light); margin: 12px 0 20px; }
+    .btn { display: inline-block; border-radius: 40px; font-family: var(--ff-sans); font-size: 0.84rem; font-weight: 500; padding: 11px 26px; cursor: pointer; border: none; transition: background 0.2s, transform 0.15s; text-align: center; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--blue); color: #fff; }
+    .btn-primary:hover { background: var(--blue-mid); }
+    .btn-ghost { background: transparent; color: var(--blue); border: 1.5px solid var(--blue-light); }
+    .btn-ghost:hover { border-color: var(--blue); background: var(--blue-pale); }
+    .btn-peach { background: var(--peach); color: #fff; }
+    .btn-peach:hover { background: #c0714a; }
+
+    /* Reveal animation */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
     .reveal.in { opacity: 1; transform: none; }
 
     /* Progress bar */
-    #progress { position:fixed; top:0; left:0; height:2px; background:var(--sage); z-index:9999; width:0; transition:width .1s linear; }
+    #progress { position: fixed; top: 0; left: 0; height: 2px; background: var(--blue-mid); z-index: 9999; width: 0; }
 
     /* Top bar */
-    .topbar {
-      background: var(--sage-dark);
-      color: rgba(255,255,255,0.78);
-      font-size: 0.74rem;
-      letter-spacing: 0.04em;
-      padding: 8px var(--gutter);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .topbar a { color: var(--gold-light); }
+    .topbar { background: var(--blue); color: rgba(255,255,255,0.78); font-size: 0.74rem; letter-spacing: 0.04em; padding: 7px var(--pad); display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .topbar a { color: #fde68a; }
     .topbar a:hover { text-decoration: underline; }
 
     /* Nav */
     nav { background: var(--cream); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 200; }
-    .nav-inner {
-      max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter);
-      display: flex; align-items: center; justify-content: space-between;
-      height: 64px; gap: 20px;
-    }
-
-    .nav-logo-img { height: 44px; width: auto; display: block; object-fit: contain; }
-    .nav-brand { padding: 4px 0; }
-
-    .nav-brand { display: flex; flex-direction: column; line-height: 1.15; }
-    .nav-brand .name { font-family: var(--ff-display); font-size: 1.2rem; color: var(--sage-dark); }
-    .nav-brand .sub { font-size: 0.63rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mist); }
+    .nav-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad); display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 20px; }
+    .nav-brand { font-family: var(--ff-display); font-size: 1.25rem; color: var(--blue); display: flex; flex-direction: column; line-height: 1.1; }
+    .nav-brand small { font-family: var(--ff-sans); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mist); }
     .nav-links { display: flex; align-items: center; gap: 24px; }
     .nav-links a { font-size: 0.82rem; color: var(--ink); transition: color 0.2s; }
-    .nav-links a:hover { color: var(--sage-dark); }
-    .nav-links .cta { background: var(--sage-dark); color: #fff !important; padding: 8px 18px; border-radius: 40px; font-weight: 500; }
-    .nav-links .cta:hover { background: var(--sage); }
-    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; background:none; border:none; }
-    .hamburger span { width:22px; height:2px; background:var(--ink); border-radius:2px; display:block; }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-links .cta { background: var(--blue); color: #fff !important; padding: 8px 20px; border-radius: 40px; font-weight: 500; }
+    .nav-links .cta:hover { background: var(--blue-mid); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .hamburger span { width: 22px; height: 2px; background: var(--ink); border-radius: 2px; display: block; }
 
-    /* Drawer */
-    .nav-drawer { display:none; position:fixed; inset:0; background:var(--cream); z-index:300; flex-direction:column; align-items:center; justify-content:center; gap:26px; }
-    .nav-drawer.open { display:flex; }
-    .nav-drawer a { font-family:var(--ff-serif); font-size:1.65rem; color:var(--sage-dark); }
-    .drawer-close { position:absolute; top:18px; right:22px; font-size:1.5rem; cursor:pointer; background:none; border:none; color:var(--bark); }
-    .drawer-contact { font-size:0.82rem; color:var(--mist); text-align:center; margin-top:6px; }
-
-    /* Section scaffold */
-    section { padding: clamp(52px, 7vw, 88px) var(--gutter); }
-    .container { max-width: var(--max-w); margin: 0 auto; }
-    .eyebrow { font-size:0.68rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--peach); font-weight:500; margin-bottom:8px; }
-    .section-title { font-family:var(--ff-display); font-size:clamp(1.65rem,3vw,2.5rem); color:var(--sage-dark); line-height:1.18; margin-bottom:12px; }
-    .section-body { font-size:0.95rem; color:var(--bark); font-weight:300; max-width:500px; line-height:1.75; }
-    .section-header { margin-bottom:42px; }
-    .divider { width:36px; height:2px; background:var(--sage-light); margin:12px 0; }
-    .btn { display:inline-block; border-radius:40px; font-family:var(--ff-sans); font-size:0.84rem; font-weight:500; letter-spacing:0.03em; padding:11px 24px; cursor:pointer; border:none; transition:background .2s, transform .15s; text-align:center; }
-    .btn:hover { transform:translateY(-1px); }
-    .btn-primary { background:var(--sage-dark); color:#fff; }
-    .btn-primary:hover { background:var(--sage); }
-    .btn-ghost { background:transparent; color:var(--sage-dark); border:1.5px solid var(--sage-light); }
-    .btn-ghost:hover { border-color:var(--sage-dark); background:var(--sage-pale); }
-    .btn-peach { background:var(--peach); color:#fff; }
-    .btn-peach:hover { background:#c0714a; }
+    /* Mobile drawer */
+    .nav-drawer { display: none; position: fixed; inset: 0; background: var(--cream); z-index: 300; flex-direction: column; align-items: center; justify-content: center; gap: 28px; }
+    .nav-drawer.open { display: flex; }
+    .nav-drawer a { font-family: var(--ff-display); font-size: 1.7rem; color: var(--blue); }
+    .drawer-close { position: absolute; top: 18px; right: 22px; font-size: 1.5rem; cursor: pointer; background: none; border: none; color: var(--bark); }
 
     /* Hero */
-    .hero { background:var(--linen); position:relative; overflow:hidden; padding:clamp(56px,8vw,92px) var(--gutter) 0; }
-    .hbg { position:absolute; border-radius:50%; pointer-events:none; }
-    .hbg-1 { width:480px; height:480px; background:radial-gradient(circle, var(--sage-pale) 0%, transparent 70%); top:-110px; right:-80px; opacity:.75; }
-    .hbg-2 { width:260px; height:260px; background:radial-gradient(circle, var(--peach-pale) 0%, transparent 70%); bottom:0; left:42%; opacity:.55; }
-    .hero-grid { max-width:var(--max-w); margin:0 auto; display:block; padding-bottom:62px; position:relative; z-index:2; max-width:720px; }
-    .hero-pill { display:inline-flex; align-items:center; gap:7px; background:var(--sage-dark); color:rgba(255,255,255,.85); font-size:0.68rem; letter-spacing:.14em; text-transform:uppercase; padding:5px 13px; border-radius:30px; margin-bottom:20px; }
-    .hero-pill .dot { width:5px; height:5px; border-radius:50%; background:var(--peach-light); }
-    .hero-h1 { font-family:var(--ff-display); font-size:clamp(2.2rem,4.5vw,3.8rem); color:var(--sage-dark); line-height:1.1; margin-bottom:18px; }
-    .hero-h1 em { color:var(--peach); font-style:italic; }
-    .hero-lead { font-size:0.96rem; color:var(--bark); font-weight:300; line-height:1.75; max-width:400px; margin-bottom:28px; }
-    .hero-actions { display:flex; gap:10px; flex-wrap:wrap; }
-    .hero-panel { display:flex; flex-direction:column; gap:12px; }
-    .hic { background:#fff; border-radius:var(--r-md); padding:16px 18px; box-shadow:var(--shadow-sm); display:flex; align-items:center; gap:14px; transition:transform .2s; }
-    .hic:hover { transform:translateX(-3px); }
-    .hic-icon { width:38px; height:38px; border-radius:9px; display:flex; align-items:center; justify-content:center; font-size:1.15rem; flex-shrink:0; }
-    .hic-label { font-size:0.65rem; color:var(--mist); text-transform:uppercase; letter-spacing:.08em; margin-bottom:2px; }
-    .hic-value { font-family:var(--ff-serif); font-size:0.9rem; color:var(--ink); font-weight:600; }
-    .hero-badge { background:var(--peach-pale); border:1px solid var(--peach-light); border-radius:var(--r-md); padding:14px 18px; text-align:center; }
-    .hero-badge .month { font-family:var(--ff-display); font-size:0.95rem; color:var(--peach); }
-    .hero-badge .theme { font-size:0.65rem; letter-spacing:.1em; text-transform:uppercase; color:var(--bark); margin-top:2px; }
-
-
-    /* ── Expanded Services Detail ──────────────────────────────── */
-    .svc-detail-block { scroll-margin-top:80px; padding:36px 0; border-bottom:1px solid var(--border); }
-    .svc-detail-block:last-child { border-bottom:none; }
-    .sdb-inner { max-width:800px; }
-    .sdb-header { display:flex; align-items:center; gap:14px; margin-bottom:14px; }
-    .sdb-icon { width:48px; height:48px; border-radius:13px; background:var(--sage-pale); display:flex; align-items:center; justify-content:center; font-size:1.5rem; flex-shrink:0; }
-    .sdb-title { font-family:var(--ff-display); font-size:1.45rem; color:var(--sage-dark); line-height:1.15; }
-    .sdb-lead { font-size:.92rem; color:var(--bark); font-weight:300; line-height:1.8; margin-bottom:14px; }
-    .sdb-list { margin-bottom:14px; }
-    .sdb-list li { display:flex; align-items:flex-start; gap:9px; padding:6px 0; border-bottom:1px solid var(--border); font-size:.86rem; color:var(--bark); }
-    .sdb-list li:last-child { border-bottom:none; }
-    .sdb-list .check { color:var(--sage); font-size:.95rem; flex-shrink:0; margin-top:1px; }
-    .sdb-note { background:var(--peach-pale); border-left:3px solid var(--peach-light); border-radius:var(--r-sm); padding:12px 16px; font-size:.81rem; color:var(--bark); font-style:italic; line-height:1.65; }
-    /* Quick-jump pills for services */
-    .svc-jump { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:36px; }
-    .svc-jump a { display:inline-block; padding:6px 16px; border-radius:30px; font-size:.76rem; font-weight:500; color:var(--bark); border:1px solid var(--border); transition:all .2s; }
-    .svc-jump a:hover { background:var(--sage-pale); border-color:var(--sage-light); color:var(--sage-dark); }
+    .hero { background: var(--linen); padding: clamp(56px, 8vw, 96px) var(--pad) clamp(48px, 6vw, 80px); position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, var(--blue-pale) 0%, transparent 70%); top: -120px; right: -80px; pointer-events: none; }
+    .hero-inner { max-width: 680px; position: relative; z-index: 1; }
+    .hero-pill { display: inline-flex; align-items: center; gap: 8px; background: var(--blue); color: rgba(255,255,255,0.85); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 14px; border-radius: 30px; margin-bottom: 22px; }
+    .hero-pill .dot { width: 5px; height: 5px; border-radius: 50%; background: #fde68a; }
+    .hero-h1 { font-family: var(--ff-display); font-size: clamp(2.2rem, 4.5vw, 3.8rem); color: var(--blue); line-height: 1.1; margin-bottom: 18px; }
+    .hero-h1 em { color: var(--peach); font-style: italic; }
+    .hero-lead { font-size: 0.96rem; color: var(--bark); font-weight: 300; line-height: 1.8; max-width: 480px; margin-bottom: 30px; }
+    .hero-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .hero-stats { display: flex; gap: 32px; margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--border); flex-wrap: wrap; }
+    .hero-stat .num { font-family: var(--ff-display); font-size: 2rem; color: var(--blue); line-height: 1; }
+    .hero-stat .label { font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mist); margin-top: 4px; }
 
     /* Marquee */
-    .marquee-bar { background:var(--sage-dark); overflow:hidden; white-space:nowrap; padding:11px 0; }
-    .marquee-track { display:inline-block; animation:marquee 32s linear infinite; }
-    .mq-item { display:inline-flex; align-items:center; gap:9px; font-size:0.7rem; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.7); padding:0 28px; }
-    .mq-item .pip { color:var(--peach-light); }
-    @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    .marquee-bar { background: var(--blue); overflow: hidden; white-space: nowrap; padding: 10px 0; }
+    .marquee-track { display: inline-block; animation: marquee 30s linear infinite; }
+    .mq-item { display: inline-flex; align-items: center; gap: 9px; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.7); padding: 0 28px; }
+    .mq-item .pip { color: #fde68a; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* Section padding */
+    section { padding: clamp(52px, 7vw, 88px) var(--pad); }
+    .section-header { margin-bottom: 44px; }
 
     /* Services */
-    .services { background:var(--cream); }
-    .services-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
-    .svc-card { background:#fff; border:1px solid var(--border); border-radius:var(--r-md); padding:24px 20px; transition:box-shadow .2s,border-color .2s; }
-    .svc-card:hover { box-shadow:var(--shadow-md); border-color:var(--sage-light); }
-    .svc-icon { font-size:1.7rem; margin-bottom:12px; }
-    .svc-title { font-family:var(--ff-serif); font-size:0.97rem; color:var(--ink); font-weight:600; margin-bottom:7px; }
-    .svc-desc { font-size:0.8rem; color:var(--bark); line-height:1.6; font-weight:300; }
-    .svc-link { display:inline-flex; align-items:center; gap:4px; margin-top:12px; font-size:0.76rem; font-weight:500; color:var(--sage-dark); transition:gap .15s; }
-    .svc-link:hover { gap:7px; }
+    .services { background: var(--cream); }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .svc-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 26px 22px; transition: box-shadow 0.2s, border-color 0.2s; }
+    .svc-card:hover { box-shadow: var(--shadow); border-color: var(--blue-light); }
+    .svc-icon { font-size: 1.8rem; margin-bottom: 14px; }
+    .svc-title { font-family: var(--ff-display); font-size: 1.05rem; color: var(--ink); margin-bottom: 8px; }
+    .svc-desc { font-size: 0.82rem; color: var(--bark); line-height: 1.65; font-weight: 300; }
+    .svc-items { margin-top: 14px; display: flex; flex-direction: column; gap: 6px; }
+    .svc-items li { font-size: 0.78rem; color: var(--bark); display: flex; align-items: flex-start; gap: 7px; }
+    .svc-items li::before { content: '✓'; color: var(--blue-mid); font-size: 0.8rem; flex-shrink: 0; margin-top: 1px; }
+    .svc-note { margin-top: 14px; padding: 10px 14px; background: var(--peach-pale); border-left: 3px solid #f5cbb4; border-radius: 6px; font-size: 0.75rem; color: var(--bark); font-style: italic; line-height: 1.6; }
 
-    /* Topics */
-    .topics { background:var(--linen); }
-    .topics-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
-    .topic-card { background:#fff; border-radius:var(--r-lg); overflow:hidden; border:1px solid var(--border); transition:box-shadow .22s; }
-    .topic-card:hover { box-shadow:var(--shadow-md); }
-    .topic-card.wide { grid-column:span 2; }
-    .topic-thumb { height:160px; display:flex; align-items:center; justify-content:center; font-size:3.2rem; }
-    .topic-card.wide .topic-thumb { height:200px; font-size:4rem; }
-    .topic-body { padding:20px; }
-    .topic-tag { display:inline-block; font-size:0.63rem; letter-spacing:.12em; text-transform:uppercase; padding:3px 9px; border-radius:20px; margin-bottom:8px; font-weight:500; }
-    .tag-mental { background:var(--sage-pale); color:var(--sage-dark); }
-    .tag-fitness { background:var(--peach-pale); color:var(--bark); }
-    .tag-food { background:#fef9e7; color:#7a5c0a; }
-    .tag-allergy { background:#eaf4f1; color:#2d6b55; }
-    .topic-title { font-family:var(--ff-serif); font-size:1rem; color:var(--ink); font-weight:600; line-height:1.3; margin-bottom:6px; }
-    .topic-card.wide .topic-title { font-size:1.18rem; }
-    .topic-desc { font-size:0.8rem; color:var(--bark); line-height:1.65; font-weight:300; }
-    .topic-link { display:inline-flex; align-items:center; gap:4px; margin-top:10px; font-size:0.76rem; font-weight:500; color:var(--sage-dark); transition:gap .15s; }
-    .topic-link:hover { gap:7px; }
+    /* Wellness topics */
+    .topics { background: var(--linen); }
+    .topics-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .topic-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; transition: box-shadow 0.2s; }
+    .topic-card:hover { box-shadow: var(--shadow); }
+    .topic-tag { display: inline-block; font-size: 0.63rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; font-weight: 500; margin-bottom: 10px; }
+    .tag-mental  { background: var(--blue-pale);  color: var(--blue); }
+    .tag-fitness { background: var(--peach-pale); color: var(--bark); }
+    .tag-food    { background: #fef9e7;            color: #7a5c0a; }
+    .tag-allergy { background: #eaf4f1;            color: #2d6b55; }
+    .topic-title { font-family: var(--ff-display); font-size: 1.05rem; color: var(--ink); margin-bottom: 8px; line-height: 1.3; }
+    .topic-desc  { font-size: 0.82rem; color: var(--bark); line-height: 1.65; font-weight: 300; }
+    .topic-link  { display: inline-flex; align-items: center; gap: 4px; margin-top: 12px; font-size: 0.76rem; font-weight: 500; color: var(--blue); transition: gap 0.15s; }
+    .topic-link:hover { gap: 8px; }
 
     /* Tips */
-    .tips { background:var(--cream); }
-    .tips-layout { display:grid; grid-template-columns:1fr 1fr; gap:52px; align-items:start; }
-    .tips-callout { background:var(--sage-dark); border-radius:var(--r-xl) var(--r-xl) var(--r-xl) var(--r-sm); padding:36px 32px; color:#fff; position:relative; overflow:hidden; }
-    .tips-callout::before { content:''; position:absolute; width:160px; height:160px; border-radius:50%; background:rgba(255,255,255,.05); bottom:-44px; right:-28px; }
-    .tips-callout-title { font-family:var(--ff-display); font-size:1.45rem; margin-bottom:14px; line-height:1.25; position:relative; z-index:1; }
-    .tips-callout-title em { color:var(--peach-light); font-style:italic; }
-    .tips-callout-body { font-size:0.88rem; line-height:1.75; opacity:.83; position:relative; z-index:1; }
-    .tips-note { background:var(--peach-pale); border-left:3px solid var(--peach-light); border-radius:var(--r-sm); padding:14px 18px; margin-top:24px; }
-    .tips-note p { font-size:0.82rem; color:var(--bark); font-style:italic; line-height:1.65; }
-    .tips-list { display:flex; flex-direction:column; gap:12px; }
-    .tip-row { background:#fff; border:1px solid var(--border); border-radius:var(--r-md); padding:16px 18px; display:flex; gap:14px; align-items:flex-start; transition:border-color .2s; }
-    .tip-row:hover { border-color:var(--sage-light); }
-    .tip-num { width:30px; height:30px; border-radius:7px; background:var(--sage-pale); color:var(--sage-dark); font-family:var(--ff-serif); font-size:0.82rem; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-    .tip-text strong { display:block; font-size:0.85rem; color:var(--ink); margin-bottom:2px; font-weight:500; }
-    .tip-text p { font-size:0.78rem; color:var(--mist); line-height:1.55; }
-
-    /* Team */
-    .team { background:var(--linen); }
-    .team-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
-    .team-card { background:#fff; border-radius:var(--r-md); overflow:hidden; border:1px solid var(--border); transition:box-shadow .2s; }
-    .team-card:hover { box-shadow:var(--shadow-md); }
-    .team-photo { height:220px; overflow:hidden; background:var(--sage-pale); }
-    .team-photo img { width:100%; height:100%; object-fit:cover; object-position:center top; display:block; transition:transform .35s ease; }
-    .team-card:hover .team-photo img { transform:scale(1.04); }
-    .team-info { padding:16px; }
-    .team-name { font-family:var(--ff-serif); font-size:0.95rem; font-weight:600; color:var(--ink); margin-bottom:2px; }
-    .team-role { font-size:0.68rem; color:var(--sage); letter-spacing:.08em; text-transform:uppercase; font-weight:500; margin-bottom:8px; }
-    .team-bio { font-size:0.76rem; color:var(--bark); line-height:1.6; font-weight:300; }
+    .tips { background: var(--cream); }
+    .tips-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: start; }
+    .tips-callout { background: var(--blue); border-radius: 56px 56px 56px 6px; padding: 36px 32px; color: #fff; position: relative; overflow: hidden; }
+    .tips-callout::before { content: ''; position: absolute; width: 180px; height: 180px; border-radius: 50%; background: rgba(255,255,255,0.05); bottom: -50px; right: -30px; }
+    .tips-callout-title { font-family: var(--ff-display); font-size: 1.5rem; margin-bottom: 14px; line-height: 1.25; position: relative; z-index: 1; }
+    .tips-callout-title em { color: #fde68a; font-style: italic; }
+    .tips-callout-body { font-size: 0.88rem; line-height: 1.78; opacity: 0.82; position: relative; z-index: 1; }
+    .tips-callout-note { background: var(--peach-pale); border-left: 3px solid #f5cbb4; border-radius: 6px; padding: 14px 18px; margin-top: 24px; font-size: 0.82rem; color: var(--bark); font-style: italic; line-height: 1.65; }
+    .tips-list { display: flex; flex-direction: column; gap: 12px; }
+    .tip-row { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; display: flex; gap: 14px; align-items: flex-start; transition: border-color 0.2s; }
+    .tip-row:hover { border-color: var(--blue-light); }
+    .tip-num { width: 30px; height: 30px; border-radius: 7px; background: var(--blue-pale); color: var(--blue); font-family: var(--ff-display); font-size: 0.82rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .tip-text strong { display: block; font-size: 0.85rem; color: var(--ink); margin-bottom: 2px; font-weight: 500; }
+    .tip-text p { font-size: 0.78rem; color: var(--mist); line-height: 1.6; }
 
     /* Spotlight */
-    .spotlight { background:var(--sage-dark); color:#fff; position:relative; overflow:hidden; }
-    .spotlight::before { content:'MAY'; position:absolute; font-family:var(--ff-display); font-size:clamp(90px,16vw,200px); color:rgba(255,255,255,.03); right:-8px; bottom:-16px; line-height:1; pointer-events:none; }
-    .spotlight-header { color:#fff; margin-bottom:40px; position:relative; z-index:1; }
-    .spotlight-header .eyebrow { color:var(--peach-light); }
-    .spotlight-header .section-title { color:#fff; }
-    .spotlight-header .section-body { color:rgba(255,255,255,.6); max-width:460px; }
-    .spotlight-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; position:relative; z-index:1; }
-    .spotlight-card { background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.10); border-radius:var(--r-md); padding:22px 20px; transition:background .2s; }
-    .spotlight-card:hover { background:rgba(255,255,255,.11); }
-    .spotlight-card .icon { font-size:1.75rem; margin-bottom:10px; }
-    .spotlight-card .card-title { font-family:var(--ff-serif); font-size:0.95rem; color:var(--gold-light); margin-bottom:7px; }
-    .spotlight-card .card-body { font-size:0.8rem; opacity:.72; line-height:1.65; }
-
-    /* Nutrition */
-    .nutrition { background:var(--peach-pale); }
-    .nutrition-layout { display:grid; grid-template-columns:1fr 1fr; gap:44px; align-items:center; }
-    .food-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
-    .food-tile { background:#fff; border:1px solid var(--border); border-radius:var(--r-md); padding:12px 10px; text-align:center; transition:transform .18s; }
-    .food-tile:hover { transform:scale(1.02); }
-    .food-tile .emoji { font-size:1.65rem; margin-bottom:5px; }
-    .food-tile .fname { font-family:var(--ff-serif); font-size:0.8rem; color:var(--ink); margin-bottom:1px; }
-    .food-tile .fnote { font-size:0.65rem; color:var(--mist); line-height:1.4; }
-    .food-feature { background:var(--peach); color:#fff; border-radius:var(--r-xl) var(--r-sm) var(--r-xl) var(--r-xl); padding:32px 28px; position:relative; overflow:hidden; }
-    .food-feature::after { content:'🥗'; position:absolute; font-size:5.5rem; bottom:-6px; right:-6px; opacity:.14; }
-    .food-feature .pre { font-size:0.65rem; letter-spacing:.15em; text-transform:uppercase; opacity:.72; margin-bottom:7px; }
-    .food-feature h3 { font-family:var(--ff-display); font-size:1.55rem; margin-bottom:12px; line-height:1.2; }
-    .food-feature p { font-size:0.85rem; opacity:.85; line-height:1.7; margin-bottom:16px; }
-    .food-tags { display:flex; gap:5px; flex-wrap:wrap; }
-    .food-tag { background:rgba(255,255,255,.18); border-radius:20px; padding:3px 10px; font-size:0.65rem; letter-spacing:.05em; }
-
-    /* Newsletter */
-    .newsletter { background:var(--cream); }
-    .nl-box { background:linear-gradient(140deg,var(--sage-dark) 0%,var(--sage) 100%); border-radius:var(--r-xl); padding:clamp(32px,5vw,60px); text-align:center; color:#fff; position:relative; overflow:hidden; }
-    .nl-box::before { content:''; position:absolute; width:300px; height:300px; border-radius:50%; background:rgba(255,255,255,.05); top:-90px; right:-60px; }
-    .nl-icon { font-size:1.9rem; margin-bottom:12px; position:relative; z-index:1; }
-    .nl-title { font-family:var(--ff-display); font-size:clamp(1.4rem,2.8vw,2.1rem); margin-bottom:9px; position:relative; z-index:1; }
-    .nl-sub { font-size:0.9rem; font-weight:300; opacity:.76; max-width:400px; margin:0 auto 26px; line-height:1.7; position:relative; z-index:1; }
-    .nl-form { display:flex; gap:9px; justify-content:center; flex-wrap:wrap; max-width:440px; margin:0 auto; position:relative; z-index:1; }
-    .nl-input { flex:1; min-width:190px; padding:11px 18px; border:none; border-radius:40px; font-family:var(--ff-sans); font-size:0.86rem; background:rgba(255,255,255,.93); color:var(--ink); outline:none; }
-    .nl-input::placeholder { color:var(--mist); }
-    .nl-btn { background:var(--peach); color:#fff; border:none; border-radius:40px; padding:11px 22px; font-family:var(--ff-sans); font-size:0.86rem; font-weight:500; cursor:pointer; transition:background .2s; white-space:nowrap; }
-    .nl-btn:hover { background:#c0714a; }
-    .nl-fine { margin-top:10px; font-size:0.66rem; opacity:.44; position:relative; z-index:1; }
-    .nl-perks { display:flex; justify-content:center; gap:22px; flex-wrap:wrap; margin-top:22px; position:relative; z-index:1; }
-    .nl-perk { display:flex; align-items:center; gap:5px; font-size:0.73rem; opacity:.65; }
-    .nl-perk-dot { width:4px; height:4px; border-radius:50%; background:var(--peach-light); }
+    .spotlight { background: var(--blue); color: #fff; }
+    .spotlight .section-title { color: #fff; }
+    .spotlight .eyebrow { color: #fde68a; }
+    .spotlight .section-body { color: rgba(255,255,255,0.65); }
+    .spotlight .divider { background: rgba(255,255,255,0.18); }
+    .spotlight-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .spotlight-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.10); border-radius: var(--radius); padding: 22px 20px; transition: background 0.2s; }
+    .spotlight-card:hover { background: rgba(255,255,255,0.11); }
+    .spotlight-card .icon { font-size: 1.7rem; margin-bottom: 10px; }
+    .spotlight-card .card-title { font-family: var(--ff-display); font-size: 0.97rem; color: #fde68a; margin-bottom: 8px; }
+    .spotlight-card .card-body { font-size: 0.8rem; opacity: 0.72; line-height: 1.65; }
+    .spotlight-card .card-body a { color: #fde68a; }
 
     /* Contact */
-    .contact { background:var(--linen); }
-    .contact-layout { display:grid; grid-template-columns:1fr 1fr; gap:44px; align-items:start; }
-    .contact-card { background:#fff; border:1px solid var(--border); border-radius:var(--r-md); padding:28px; }
-    .cd { display:flex; gap:12px; align-items:flex-start; padding:12px 0; border-bottom:1px solid var(--border); }
-    .cd:last-child { border-bottom:none; }
-    .cd-icon { font-size:1.1rem; width:26px; flex-shrink:0; }
-    .cd-label { font-size:0.65rem; letter-spacing:.1em; text-transform:uppercase; color:var(--mist); margin-bottom:1px; }
-    .cd-value { font-size:0.9rem; color:var(--ink); }
-    .cd-value a { color:var(--sage-dark); }
-    .cd-value a:hover { text-decoration:underline; }
-    .appt-cta { background:var(--sage-dark); color:#fff; border-radius:var(--r-md); padding:20px 24px; margin-top:16px; display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; }
-    .appt-cta p { font-size:0.84rem; opacity:.82; }
-    .appt-cta strong { display:block; font-family:var(--ff-serif); font-size:1.05rem; margin-bottom:2px; }
-    .map-embed { border-radius:var(--r-md); overflow:hidden; border:1px solid var(--border); height:380px; }
-    .map-embed iframe { width:100%; height:100%; border:0; }
+    .contact { background: var(--linen); }
+    .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: start; }
+    .contact-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; }
+    .cd { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--border); }
+    .cd:last-child { border-bottom: none; }
+    .cd-icon { font-size: 1.1rem; width: 26px; flex-shrink: 0; }
+    .cd-label { font-size: 0.63rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mist); margin-bottom: 2px; }
+    .cd-value { font-size: 0.9rem; color: var(--ink); }
+    .cd-value a { color: var(--blue); }
+    .cd-value a:hover { text-decoration: underline; }
+    .appt-cta { background: var(--blue); color: #fff; border-radius: var(--radius); padding: 22px 24px; margin-top: 16px; display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+    .appt-cta strong { display: block; font-family: var(--ff-display); font-size: 1.05rem; margin-bottom: 2px; }
+    .appt-cta p { font-size: 0.84rem; opacity: 0.8; }
+    .map-embed { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); height: 360px; }
+    .map-embed iframe { width: 100%; height: 100%; border: 0; }
+
+    /* Newsletter */
+    .newsletter { background: var(--cream); }
+    .nl-box { background: linear-gradient(140deg, var(--blue) 0%, var(--blue-mid) 100%); border-radius: 56px; padding: clamp(36px, 5vw, 64px); text-align: center; color: #fff; }
+    .nl-title { font-family: var(--ff-display); font-size: clamp(1.5rem, 3vw, 2.2rem); margin-bottom: 10px; }
+    .nl-sub { font-size: 0.9rem; font-weight: 300; opacity: 0.76; max-width: 400px; margin: 0 auto 26px; line-height: 1.75; }
+    .nl-form { display: flex; gap: 9px; justify-content: center; flex-wrap: wrap; max-width: 440px; margin: 0 auto; }
+    .nl-input { flex: 1; min-width: 190px; padding: 11px 18px; border: none; border-radius: 40px; font-family: var(--ff-sans); font-size: 0.86rem; background: rgba(255,255,255,0.93); color: var(--ink); outline: none; }
+    .nl-btn { background: var(--peach); color: #fff; border: none; border-radius: 40px; padding: 11px 22px; font-family: var(--ff-sans); font-size: 0.86rem; font-weight: 500; cursor: pointer; white-space: nowrap; }
+    .nl-btn:hover { background: #c0714a; }
+    .nl-fine { margin-top: 10px; font-size: 0.66rem; opacity: 0.45; }
 
     /* Disclaimer */
-    .disclaimer { background:var(--sage-pale); border-top:1px solid var(--sage-light); padding:12px var(--gutter); text-align:center; font-size:0.7rem; color:var(--mist); }
+    .disclaimer { background: var(--blue-pale); border-top: 1px solid var(--blue-light); padding: 12px var(--pad); text-align: center; font-size: 0.7rem; color: var(--mist); }
 
     /* Footer */
-    footer { background:var(--ink); color:rgba(255,255,255,.52); padding:44px var(--gutter) 26px; }
-    .footer-inner { max-width:var(--max-w); margin:0 auto; }
-    .footer-top { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:32px; padding-bottom:32px; border-bottom:1px solid rgba(255,255,255,.08); margin-bottom:20px; }
-    .footer-brand { font-family:var(--ff-display); font-size:1.25rem; color:#fff; margin-bottom:7px; }
-    .footer-about { font-size:0.78rem; line-height:1.65; max-width:210px; }
-    .footer-about a { color:var(--sage-light); }
-    .footer-col h4 { color:rgba(255,255,255,.78); font-size:0.7rem; letter-spacing:.12em; text-transform:uppercase; margin-bottom:12px; }
-    .footer-col li { margin-bottom:8px; }
-    .footer-col a { font-size:0.78rem; transition:color .2s; }
-    .footer-col a:hover { color:#fff; }
-    .footer-bottom { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; font-size:0.7rem; }
-    .footer-bottom a:hover { color:#fff; }
+    footer { background: var(--ink); color: rgba(255,255,255,0.5); padding: 48px var(--pad) 28px; }
+    .footer-inner { max-width: var(--max-w); margin: 0 auto; }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 36px; padding-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 22px; }
+    .footer-brand { font-family: var(--ff-display); font-size: 1.3rem; color: #fff; margin-bottom: 8px; }
+    .footer-tagline { font-size: 0.78rem; line-height: 1.65; max-width: 210px; }
+    .footer-col h4 { color: rgba(255,255,255,0.78); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { font-size: 0.78rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 0.7rem; }
 
     /* Toast */
-    .toast { position:fixed; bottom:20px; left:50%; transform:translateX(-50%) translateY(68px); background:var(--sage-dark); color:#fff; padding:11px 22px; border-radius:40px; font-size:0.82rem; box-shadow:var(--shadow-md); transition:transform .36s cubic-bezier(.34,1.42,.64,1); z-index:9999; white-space:nowrap; }
-    .toast.show { transform:translateX(-50%) translateY(0); }
+    .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(68px); background: var(--blue); color: #fff; padding: 11px 24px; border-radius: 40px; font-size: 0.82rem; box-shadow: var(--shadow); transition: transform 0.36s cubic-bezier(0.34,1.42,0.64,1); z-index: 9999; white-space: nowrap; }
+    .toast.show { transform: translateX(-50%) translateY(0); }
 
     /* Responsive */
-    @media (max-width:960px) {
-      .hero-grid { grid-template-columns:1fr; padding-bottom:44px; }
-      .hero-panel { flex-direction:row; flex-wrap:wrap; }
-      .hic { flex:1; min-width:170px; }
-      .services-grid { grid-template-columns:1fr 1fr; }
-      .topics-grid { grid-template-columns:1fr 1fr; }
-      .topic-card.wide { grid-column:span 2; }
-      .tips-layout { grid-template-columns:1fr; }
-      .team-grid { grid-template-columns:1fr 1fr; }
-      .spotlight-grid { grid-template-columns:1fr 1fr; }
-      .nutrition-layout { grid-template-columns:1fr; }
-      .contact-layout { grid-template-columns:1fr; }
-      .footer-top { grid-template-columns:1fr 1fr; }
+    @media (max-width: 900px) {
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .tips-layout { grid-template-columns: 1fr; }
+      .contact-layout { grid-template-columns: 1fr; }
+      .spotlight-grid { grid-template-columns: 1fr 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
     }
-    @media (max-width:600px) {
-      .topbar-right { display:none; }
-      .nav-links { display:none; }
-      .hamburger { display:flex; }
-      .services-grid { grid-template-columns:1fr; }
-      .topics-grid { grid-template-columns:1fr; }
-      .topic-card.wide { grid-column:span 1; }
-      .spotlight-grid { grid-template-columns:1fr; }
-      .food-grid { grid-template-columns:1fr 1fr; }
-      .team-grid { grid-template-columns:1fr 1fr; }
-      .footer-top { grid-template-columns:1fr; }
-      .footer-bottom { flex-direction:column; text-align:center; }
-      .appt-cta { flex-direction:column; text-align:center; }
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .topbar span:last-child { display: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .topics-grid { grid-template-columns: 1fr; }
+      .spotlight-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
     }
-
-    /* ── MODALS ─────────────────────────────────────────────── */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(37,37,37,0.55);
-      z-index: 500;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      backdrop-filter: blur(3px);
-    }
-    .modal-overlay.open { display: flex; }
-    .modal {
-      background: var(--cream);
-      border-radius: var(--r-lg);
-      max-width: 560px;
-      width: 100%;
-      max-height: 90vh;
-      overflow-y: auto;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.18);
-      position: relative;
-      animation: modalIn .3s cubic-bezier(.34,1.4,.64,1);
-    }
-    @keyframes modalIn { from{transform:translateY(24px);opacity:0} to{transform:none;opacity:1} }
-    .modal-close {
-      position: absolute;
-      top: 16px; right: 18px;
-      background: none;
-      border: none;
-      font-size: 1.4rem;
-      cursor: pointer;
-      color: var(--mist);
-      line-height: 1;
-      z-index: 1;
-    }
-    .modal-close:hover { color: var(--ink); }
-    .modal-header {
-      background: var(--sage-dark);
-      color: #fff;
-      padding: 28px 32px 24px;
-      border-radius: var(--r-lg) var(--r-lg) 0 0;
-    }
-    .modal-header h2 { font-family: var(--ff-display); font-size: 1.5rem; margin-bottom: 5px; }
-    .modal-header p { font-size: 0.84rem; opacity: .75; font-weight: 300; }
-    .modal-body { padding: 28px 32px 32px; }
-    .modal-body p { font-size: 0.88rem; color: var(--bark); line-height: 1.7; margin-bottom: 14px; }
-    .modal-body a { color: var(--sage-dark); font-weight: 500; }
-    .modal-body a:hover { text-decoration: underline; }
-    .modal-option {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: var(--r-md);
-      padding: 16px 18px;
-      margin-bottom: 10px;
-      text-decoration: none !important;
-      transition: border-color .2s, box-shadow .2s;
-      cursor: pointer;
-    }
-    .modal-option:hover { border-color: var(--sage-light); box-shadow: var(--shadow-sm); }
-    .modal-option-icon {
-      width: 42px; height: 42px;
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem;
-      flex-shrink: 0;
-    }
-    .modal-option strong { display: block; font-size: 0.9rem; color: var(--ink); margin-bottom: 2px; }
-    .modal-option span { font-size: 0.78rem; color: var(--mist); }
-    .modal-divider { text-align:center; font-size:0.72rem; color:var(--mist); letter-spacing:.08em; text-transform:uppercase; margin:16px 0; }
-    .form-group { margin-bottom: 14px; }
-    .form-group label { display: block; font-size: 0.76rem; color: var(--bark); font-weight: 500; margin-bottom: 5px; letter-spacing:.04em; }
-    .form-group input, .form-group select, .form-group textarea {
-      width: 100%;
-      padding: 10px 14px;
-      border: 1px solid var(--border);
-      border-radius: var(--r-sm);
-      font-family: var(--ff-sans);
-      font-size: 0.86rem;
-      color: var(--ink);
-      background: #fff;
-      outline: none;
-      transition: border-color .2s;
-    }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-      border-color: var(--sage-mid);
-    }
-    .form-group textarea { resize: vertical; min-height: 80px; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .form-note { font-size: 0.72rem; color: var(--mist); margin-top: 10px; line-height: 1.5; }
-    .form-success { display:none; background:var(--sage-pale); border:1px solid var(--sage-light); border-radius:var(--r-md); padding:18px 20px; text-align:center; }
-    .form-success.show { display:block; }
-    .form-success p { font-size:0.88rem; color:var(--sage-dark); }
-
-  
-    .nav-logo-img { height: 42px; width: auto; display: block; object-fit: contain; }
-    .nav-brand { display: flex; align-items: center; padding: 3px 0; }
   </style>
 </head>
 <body>
@@ -453,33 +238,34 @@
 <div id="progress" role="progressbar" aria-hidden="true"></div>
 
 <!-- Mobile Drawer -->
-<div class="nav-drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
-  <button class="drawer-close" id="drawerClose" aria-label="Close navigation menu">✕</button>
-  <a href="team.html">Our Team</a>
-  <a href="appointment.html">Book Appointment</a>
-  <a href="tel:4238674969" onclick="closeDrawer()">Call Us</a>
-  <p class="drawer-contact">1508 Tombras Ave · Chattanooga, TN 37412<br />(423) 867-4969</p>
+<div class="nav-drawer" id="drawer" role="dialog" aria-modal="true">
+  <button class="drawer-close" id="drawerClose" aria-label="Close menu">✕</button>
+  <a href="#services" onclick="closeDrawer()">Services</a>
+  <a href="#contact" onclick="closeDrawer()">Contact</a>
+  <a href="team.html" onclick="closeDrawer()">Our Team</a>
+  <a href="appointment.html" onclick="closeDrawer()">Book Appointment</a>
 </div>
 
 <!-- Top Bar -->
-<div class="topbar" role="banner">
-  <span>🌿 May is Mental Health Awareness Month — <a href="#spotlight">see our resources</a></span>
-  <span class="topbar-right">
-    <a href="tel:4238674969">(423) 867-4969</a>
-    &nbsp;·&nbsp; 1508 Tombras Ave, Chattanooga TN
-  </span>
+<div class="topbar">
+  <span>🌿 May is Mental Health Awareness Month — <a href="#spotlight">see resources</a></span>
+  <span><a href="tel:4238674969">(423) 867-4969</a> &nbsp;·&nbsp; 1508 Tombras Ave, Chattanooga TN</span>
 </div>
 
-<!-- Navigation -->
+<!-- Nav -->
 <nav aria-label="Main navigation">
   <div class="nav-inner">
-    <a href="#" class="nav-brand" aria-label="In Good Health — home"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMjAgNTIiIHdpZHRoPSIyMjAiIGhlaWdodD0iNTIiPgogIDwhLS0gTWVkaWNhbCBjcm9zcyBpY29uIC0tPgogIDxyZWN0IHg9IjYiIHk9IjE2IiB3aWR0aD0iNiIgaGVpZ2h0PSIyMCIgcng9IjEuNSIgZmlsbD0iIzFBNkZBOCIvPgogIDxyZWN0IHg9IjAiIHk9IjIyIiB3aWR0aD0iMTgiIGhlaWdodD0iOCIgcng9IjEuNSIgZmlsbD0iIzFBNkZBOCIvPgogIDwhLS0gQnJhbmQgbmFtZSAtLT4KICA8dGV4dCB4PSIyNiIgeT0iMjIiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCBzZXJpZiIgZm9udC1zaXplPSIxMyIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiMxQTZGQTgiIGxldHRlci1zcGFjaW5nPSIwLjUiPklOIEdPT0QgSEVBTFRIPC90ZXh0PgogIDx0ZXh0IHg9IjI2IiB5PSIzNiIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsIHNlcmlmIiBmb250LXNpemU9IjguNSIgZmlsbD0iIzVCQTNEMCIgbGV0dGVyLXNwYWNpbmc9IjEuMiI+UFJJTUFSWSBDQVJFIMK3IENIQVRUQU5PT0dBPC90ZXh0Pgo8L3N2Zz4=" alt="In Good Health" class="nav-logo-img" /></a>
+    <a href="#" class="nav-brand">
+      In Good Health
+      <small>Primary Care · Chattanooga, TN</small>
+    </a>
     <div class="nav-links">
+      <a href="#services">Services</a>
       <a href="team.html">Our Team</a>
-      <a href="index.html#contact">Contact</a>
+      <a href="#contact">Contact</a>
       <a href="appointment.html" class="cta">Book Appointment</a>
     </div>
-    <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false">
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -487,19 +273,19 @@
 
 <!-- Hero -->
 <section class="hero" aria-labelledby="hero-h">
-  <div class="hbg hbg-1"></div>
-  <div class="hbg hbg-2"></div>
-  <div class="hero-grid">
-    <div class="reveal">
-      <div class="hero-pill"><span class="dot"></span>May 2026 · Spring Edition</div>
-      <h1 class="hero-h1" id="hero-h">Patient-Centered Care<br />for <em>Every Season</em> of Life</h1>
-      <p class="hero-lead">We're a primary care practice in Chattanooga, TN dedicated to whole-person health — combining excellent clinical care with a warm, modern approach. This May, we're also spotlighting spring wellness: mental health, fresh nutrition, and the outdoors.</p>
-      <div class="hero-actions">
-        <a href="tel:4238674969" class="btn btn-primary">Call (423) 867-4969</a>
-        <a href="#services" class="btn btn-ghost">Our Services</a>
-      </div>
+  <div class="hero-inner reveal">
+    <div class="hero-pill"><span class="dot"></span>May 2026 · Spring Edition</div>
+    <h1 class="hero-h1" id="hero-h">Patient-Centered Care<br />for <em>Every Season</em> of Life</h1>
+    <p class="hero-lead">We're a primary care practice in Chattanooga, TN dedicated to whole-person health — combining excellent clinical care with a warm, modern approach.</p>
+    <div class="hero-actions">
+      <a href="tel:4238674969" class="btn btn-primary">Call (423) 867-4969</a>
+      <a href="#services" class="btn btn-ghost">Our Services</a>
     </div>
-
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">26+</div><div class="label">Years in Practice</div></div>
+      <div class="hero-stat"><div class="num">6</div><div class="label">Specialty Services</div></div>
+      <div class="hero-stat"><div class="num">4</div><div class="label">Providers</div></div>
+    </div>
   </div>
 </section>
 
@@ -513,6 +299,7 @@
     <span class="mq-item"><span class="pip">✦</span>Bio-Identical Hormone Therapy</span>
     <span class="mq-item"><span class="pip">✦</span>Medical Weight Loss</span>
     <span class="mq-item"><span class="pip">✦</span>Home Medical Care</span>
+    <span class="mq-item"><span class="pip">✦</span>Stem Cell &amp; Peptide Therapy</span>
     <span class="mq-item"><span class="pip">✦</span>Mental Health Awareness Month</span>
     <span class="mq-item"><span class="pip">✦</span>Outdoor Fitness</span>
     <span class="mq-item"><span class="pip">✦</span>Spring Superfoods</span>
@@ -520,6 +307,7 @@
     <span class="mq-item"><span class="pip">✦</span>Bio-Identical Hormone Therapy</span>
     <span class="mq-item"><span class="pip">✦</span>Medical Weight Loss</span>
     <span class="mq-item"><span class="pip">✦</span>Home Medical Care</span>
+    <span class="mq-item"><span class="pip">✦</span>Stem Cell &amp; Peptide Therapy</span>
   </div>
 </div>
 
@@ -532,139 +320,95 @@
       <div class="divider"></div>
       <p class="section-body">Primary care is at the core of our practice. We combine excellent service with a modern approach — caring for the whole person, not just the condition.</p>
     </div>
-    <div class="svc-jump" aria-label="Jump to service">
-      <a href="#primary-care">Primary Care</a>
-      <a href="#home-care">Home Medical Care</a>
-      <a href="#hormones">Hormone Therapy</a>
-      <a href="#weight-loss">Medical Weight Loss</a>
-      <a href="#stem-cell">Stem Cell & Peptide</a>
-      <a href="#aesthetics">Aesthetics</a>
-    </div>
-    
-  <!-- Primary Care -->
-  <div class="svc-detail-block" id="primary-care">
-    <div class="sdb-inner">
-      <div class="sdb-header">
-        <div class="sdb-icon">🩺</div>
-        <h3 class="sdb-title">Primary Care</h3>
+    <div class="services-grid">
+
+      <div class="svc-card reveal">
+        <div class="svc-icon">🩺</div>
+        <div class="svc-title">Primary Care</div>
+        <p class="svc-desc">The heart of what we do. A strong patient-provider relationship is the foundation of lasting good health.</p>
+        <ul class="svc-items">
+          <li>Annual exams &amp; wellness visits</li>
+          <li>Preventive health &amp; screenings</li>
+          <li>Cardiovascular &amp; diabetes care</li>
+          <li>Anxiety, depression &amp; insomnia</li>
+          <li>Allergy &amp; asthma treatment</li>
+        </ul>
       </div>
-      <p class="sdb-lead">Primary care is the heart of what we do. We believe a strong patient-provider relationship is the foundation of lasting good health — combining attentive, personalized service with modern evidence-based medicine.</p>
-      <ul class="sdb-list">
-        <li><span class="check">✓</span>Annual physical exams & wellness visits</li>
-        <li><span class="check">✓</span>Preventive health & screenings</li>
-        <li><span class="check">✓</span>Cardiovascular disease management</li>
-        <li><span class="check">✓</span>Diabetes & hypertension care</li>
-        <li><span class="check">✓</span>Digestive disorder management</li>
-        <li><span class="check">✓</span>Anxiety, depression & insomnia treatment</li>
-        <li><span class="check">✓</span>Allergy & asthma treatment</li>
-        <li><span class="check">✓</span>Immune system health & stress management</li>
-      </ul>
-      <div class="sdb-note">Mental health is a core part of primary care here. If anxiety, depression, or sleep issues are affecting your daily life, talk to your provider — no referral needed.</div>
-    </div>
-  </div>
-  <!-- Home Medical Care -->
-  <div class="svc-detail-block" id="home-care">
-    <div class="sdb-inner">
-      <div class="sdb-header">
-        <div class="sdb-icon">🏠</div>
-        <h3 class="sdb-title">Home Medical Care</h3>
+
+      <div class="svc-card reveal" style="transition-delay:.05s">
+        <div class="svc-icon">🏠</div>
+        <div class="svc-title">Home Medical Care</div>
+        <p class="svc-desc">For patients who are homebound or prefer care in a familiar setting — comprehensive care delivered to your door.</p>
+        <ul class="svc-items">
+          <li>Physician-led home visits</li>
+          <li>Chronic disease monitoring</li>
+          <li>Medication management &amp; review</li>
+          <li>Post-discharge follow-up</li>
+          <li>Palliative care support</li>
+        </ul>
+        <div class="svc-note">Ideal for elderly patients or those recovering from surgery. Call to discuss eligibility.</div>
       </div>
-      <p class="sdb-lead">For patients who are homebound or prefer care in a familiar setting, our qualified medical professionals — including physicians — bring comprehensive medical care directly to your door.</p>
-      <ul class="sdb-list">
-        <li><span class="check">✓</span>Physician-led home visits</li>
-        <li><span class="check">✓</span>Chronic disease monitoring & management</li>
-        <li><span class="check">✓</span>Medication management & review</li>
-        <li><span class="check">✓</span>Post-discharge follow-up care</li>
-        <li><span class="check">✓</span>Coordination with specialists & caregivers</li>
-        <li><span class="check">✓</span>Palliative care support</li>
-      </ul>
-      <div class="sdb-note">Home medical care is ideal for elderly patients, those recovering from surgery, or anyone who faces challenges getting to a clinic. Call us to discuss eligibility.</div>
-    </div>
-  </div>
-  <!-- Bio-Identical Hormone Therapy -->
-  <div class="svc-detail-block" id="hormones">
-    <div class="sdb-inner">
-      <div class="sdb-header">
-        <div class="sdb-icon">⚖️</div>
-        <h3 class="sdb-title">Bio-Identical Hormone Therapy</h3>
+
+      <div class="svc-card reveal" style="transition-delay:.10s">
+        <div class="svc-icon">⚖️</div>
+        <div class="svc-title">Bio-Identical Hormone Therapy</div>
+        <p class="svc-desc">Hormones structurally identical to those your body produces naturally — personalized to your labs and symptoms.</p>
+        <ul class="svc-items">
+          <li>Comprehensive hormone panel testing</li>
+          <li>Perimenopause &amp; menopause support</li>
+          <li>Testosterone therapy for men &amp; women</li>
+          <li>Thyroid &amp; adrenal support</li>
+          <li>Mood, energy &amp; libido optimization</li>
+        </ul>
       </div>
-      <p class="sdb-lead">Hormonal imbalance affects energy, mood, weight, sleep, and overall quality of life — often in ways that go undiagnosed for years. Our BIHT program uses hormones structurally identical to those your body naturally produces.</p>
-      <ul class="sdb-list">
-        <li><span class="check">✓</span>Comprehensive hormone panel testing</li>
-        <li><span class="check">✓</span>Individualized BIHT treatment plans</li>
-        <li><span class="check">✓</span>Perimenopause & menopause support</li>
-        <li><span class="check">✓</span>Testosterone therapy for men & women</li>
-        <li><span class="check">✓</span>Thyroid & adrenal support</li>
-        <li><span class="check">✓</span>Ongoing monitoring & dose adjustment</li>
-        <li><span class="check">✓</span>Mood, energy & libido optimization</li>
-      </ul>
-      <div class="sdb-note">BIHT is not one-size-fits-all. Our providers calibrate therapy based on lab results, symptoms, and response over time.</div>
-    </div>
-  </div>
-  <!-- Medical Weight Loss -->
-  <div class="svc-detail-block" id="weight-loss">
-    <div class="sdb-inner">
-      <div class="sdb-header">
-        <div class="sdb-icon">🌱</div>
-        <h3 class="sdb-title">Medical Weight Loss</h3>
+
+      <div class="svc-card reveal" style="transition-delay:.15s">
+        <div class="svc-icon">🌱</div>
+        <div class="svc-title">Medical Weight Loss</div>
+        <p class="svc-desc">Lasting weight loss requires the right medical guidance. Under physician supervision, we create a structured, safe plan.</p>
+        <ul class="svc-items">
+          <li>Physician-supervised program</li>
+          <li>Metabolic &amp; lab evaluation</li>
+          <li>Personalized nutrition guidance</li>
+          <li>Prescription medication options</li>
+          <li>Hormone-integrated weight management</li>
+        </ul>
       </div>
-      <p class="sdb-lead">Lasting weight loss requires more than willpower — it requires the right medical guidance. Under physician supervision, our program creates a structured, safe path to achieving your goals.</p>
-      <ul class="sdb-list">
-        <li><span class="check">✓</span>Physician-supervised program</li>
-        <li><span class="check">✓</span>Metabolic & lab evaluation</li>
-        <li><span class="check">✓</span>Personalized nutrition guidance</li>
-        <li><span class="check">✓</span>Prescription medication options where appropriate</li>
-        <li><span class="check">✓</span>Behavioral & lifestyle support</li>
-        <li><span class="check">✓</span>Regular check-ins & progress monitoring</li>
-        <li><span class="check">✓</span>Hormone-integrated weight management</li>
-      </ul>
-      <div class="sdb-note">Weight is complex — influenced by hormones, metabolism, stress, and sleep. Our approach addresses the whole picture, not just the scale.</div>
-    </div>
-  </div>
-  <!-- Stem Cell, Peptide & Exosome Therapy -->
-  <div class="svc-detail-block" id="stem-cell">
-    <div class="sdb-inner">
-      <div class="sdb-header">
-        <div class="sdb-icon">🔬</div>
-        <h3 class="sdb-title">Stem Cell, Peptide & Exosome Therapy</h3>
+
+      <div class="svc-card reveal" style="transition-delay:.20s">
+        <div class="svc-icon">🔬</div>
+        <div class="svc-title">Stem Cell, Peptide &amp; Exosome Therapy</div>
+        <p class="svc-desc">Regenerative medicine harnessing the body's own repair mechanisms for inflammation, joint pain, and cellular recovery.</p>
+        <ul class="svc-items">
+          <li>Stem cell therapy for joints &amp; pain</li>
+          <li>Peptide protocols for performance &amp; recovery</li>
+          <li>Exosome IV infusion therapy</li>
+          <li>Comprehensive candidacy evaluation</li>
+        </ul>
+        <div class="svc-note">Call to discuss whether regenerative therapy is appropriate for your situation.</div>
       </div>
-      <p class="sdb-lead">At the frontier of regenerative medicine, these treatments harness the body's own repair mechanisms to address inflammation, joint pain, aging, and cellular recovery.</p>
-      <ul class="sdb-list">
-        <li><span class="check">✓</span>Stem Cell Therapy — regenerative treatment for joints, pain & aging</li>
-        <li><span class="check">✓</span>Peptide Therapy — targeted protocols for performance, recovery & anti-aging</li>
-        <li><span class="check">✓</span>Exosome IV Infusion — advanced cellular communication therapy</li>
-        <li><span class="check">✓</span>Comprehensive consultation & candidacy evaluation</li>
-        <li><span class="check">✓</span>Personalized treatment protocols</li>
-      </ul>
-      <div class="sdb-note">Regenerative therapies are evolving rapidly. Our providers stay current on the latest research. Call us to discuss whether these treatments may be appropriate for your situation.</div>
-    </div>
-  </div>
-  <!-- Medical Aesthetics & Vaginal Rejuvenation -->
-  <div class="svc-detail-block" id="aesthetics">
-    <div class="sdb-inner">
-      <div class="sdb-header">
-        <div class="sdb-icon">✨</div>
-        <h3 class="sdb-title">Medical Aesthetics & Vaginal Rejuvenation</h3>
+
+      <div class="svc-card reveal" style="transition-delay:.25s">
+        <div class="svc-icon">✨</div>
+        <div class="svc-title">Medical Aesthetics</div>
+        <p class="svc-desc">Looking and feeling your best is part of whole-person wellness. All services are medically supervised.</p>
+        <ul class="svc-items">
+          <li>CoolSculpting — non-surgical fat reduction</li>
+          <li>Botox &amp; neurotoxin injections</li>
+          <li>Lip &amp; cheek filler</li>
+          <li>Microneedling &amp; laser therapy</li>
+          <li>Empower RF — vaginal rejuvenation</li>
+        </ul>
       </div>
-      <p class="sdb-lead">Looking and feeling your best are part of whole-person wellness. Our aesthetic and rejuvenation services are medically supervised and performed by our trained, certified providers.</p>
-      <ul class="sdb-list">
-        <li><span class="check">✓</span>CoolSculpting — non-surgical fat reduction</li>
-        <li><span class="check">✓</span>Botox & neurotoxin injections</li>
-        <li><span class="check">✓</span>Lip & cheek filler</li>
-        <li><span class="check">✓</span>Microneedling</li>
-        <li><span class="check">✓</span>Laser therapy</li>
-        <li><span class="check">✓</span>Empower RF — vaginal rejuvenation & feminine wellness</li>
-      </ul>
-      <div class="sdb-note">Aesthetic services are performed by our certified providers. Call to inquire about availability and to schedule a consultation.</div>
+
     </div>
-  </div>
     <p style="text-align:center;margin-top:36px">
       <a href="appointment.html" class="btn btn-primary">Schedule a Visit</a>
     </p>
   </div>
 </section>
 
-<!-- May Topics -->
+<!-- May Wellness Topics -->
 <section class="topics" id="topics" aria-labelledby="topics-h">
   <div class="container">
     <div class="section-header reveal">
@@ -674,41 +418,29 @@
       <p class="section-body">Four health areas worth your attention this spring — relevant to our patients and the season.</p>
     </div>
     <div class="topics-grid">
-      <div class="topic-card wide reveal" style="transition-delay:.05s">
-        <div class="topic-thumb" style="background:linear-gradient(135deg,var(--sage-pale),var(--sage-light))">🧠</div>
-        <div class="topic-body">
-          <span class="topic-tag tag-mental">Mental Health</span>
-          <h3 class="topic-title">May Is Mental Health Awareness Month</h3>
-          <p class="topic-desc">At In Good Health, we treat anxiety, depression, and insomnia as part of our primary care scope. This month, we're encouraging patients to come in if mental health has been on your mind — there's no need to wait for a crisis. Talk to your provider.</p>
-          <a class="topic-link" href="tel:4238674969">Talk to your provider →</a>
-        </div>
+      <div class="topic-card reveal">
+        <span class="topic-tag tag-mental">Mental Health</span>
+        <h3 class="topic-title">May Is Mental Health Awareness Month</h3>
+        <p class="topic-desc">At In Good Health, we treat anxiety, depression, and insomnia as part of our primary care scope. Come in if mental health has been on your mind — there's no need to wait for a crisis.</p>
+        <a class="topic-link" href="tel:4238674969">Talk to your provider →</a>
+      </div>
+      <div class="topic-card reveal" style="transition-delay:.05s">
+        <span class="topic-tag tag-fitness">Outdoor Fitness</span>
+        <h3 class="topic-title">Move Outside This May</h3>
+        <p class="topic-desc">Chattanooga's trails and parks are at their best in May. Even 20–30 minutes of daily walking meaningfully improves cardiovascular health, mood, and sleep quality.</p>
+        <a class="topic-link" href="#tips">See wellness tips →</a>
       </div>
       <div class="topic-card reveal" style="transition-delay:.10s">
-        <div class="topic-thumb" style="background:linear-gradient(135deg,var(--peach-pale),var(--peach-light))">🏃‍♀️</div>
-        <div class="topic-body">
-          <span class="topic-tag tag-fitness">Outdoor Fitness</span>
-          <h3 class="topic-title">Move Outside This May</h3>
-          <p class="topic-desc">Chattanooga's trails and parks are at their best in May. Even 20–30 minutes of daily walking meaningfully improves cardiovascular health, mood, and sleep quality.</p>
-          <a class="topic-link" href="#tips">See wellness tips →</a>
-        </div>
+        <span class="topic-tag tag-food">Spring Nutrition</span>
+        <h3 class="topic-title">Eat the Season</h3>
+        <p class="topic-desc">May's produce — asparagus, strawberries, snap peas, spinach — is nutrient-dense and anti-inflammatory. Eating seasonally is one of the most accessible nutrition habits we recommend.</p>
+        <a class="topic-link" href="#spotlight">Learn more →</a>
       </div>
       <div class="topic-card reveal" style="transition-delay:.15s">
-        <div class="topic-thumb" style="background:linear-gradient(135deg,#fef9e7,#fde68a)">🥦</div>
-        <div class="topic-body">
-          <span class="topic-tag tag-food">Spring Nutrition</span>
-          <h3 class="topic-title">Eat the Season</h3>
-          <p class="topic-desc">May's produce — asparagus, strawberries, snap peas, spinach — is nutrient-dense and anti-inflammatory. Eating seasonally is one of the most accessible and effective nutrition habits.</p>
-          <a class="topic-link" href="#nutrition">What's in season →</a>
-        </div>
-      </div>
-      <div class="topic-card reveal" style="transition-delay:.20s">
-        <div class="topic-thumb" style="background:linear-gradient(135deg,#eaf4f1,#c9e9de)">🌼</div>
-        <div class="topic-body">
-          <span class="topic-tag tag-allergy">Allergy Care</span>
-          <h3 class="topic-title">Managing Spring Allergies</h3>
-          <p class="topic-desc">Pollen peaks in May across Tennessee. We offer allergy and asthma treatment — if over-the-counter relief isn't working, it may be time for a more tailored approach.</p>
-          <a class="topic-link" href="tel:4238674969">Schedule a visit →</a>
-        </div>
+        <span class="topic-tag tag-allergy">Allergy Care</span>
+        <h3 class="topic-title">Managing Spring Allergies</h3>
+        <p class="topic-desc">Pollen peaks in May across Tennessee. We offer allergy and asthma treatment — if over-the-counter relief isn't working, it may be time for a more tailored approach.</p>
+        <a class="topic-link" href="tel:4238674969">Schedule a visit →</a>
       </div>
     </div>
   </div>
@@ -720,11 +452,11 @@
     <div class="tips-layout">
       <div class="reveal">
         <div class="tips-callout">
-          <h2 class="tips-callout-title">This May,<br />care for your <em>whole self.</em></h2>
-          <p class="tips-callout-body">At In Good Health, we believe good health is more than the absence of illness. It's energy, clarity, resilience, and connection. Our team is here to support all of it — from primary care to specialty services.</p>
+          <h2 class="tips-callout-title">This May, care for your <em>whole self.</em></h2>
+          <p class="tips-callout-body">At In Good Health, we believe good health is more than the absence of illness. It's energy, clarity, resilience, and connection. Our team is here to support all of it.</p>
         </div>
-        <div class="tips-note">
-          <p>"Even a short walk in Chattanooga's spring air can shift your nervous system and your mood. Nature is consistently underrated as medicine."</p>
+        <div class="tips-callout-note">
+          "Even a short walk in Chattanooga's spring air can shift your nervous system and your mood. Nature is consistently underrated as medicine."
         </div>
       </div>
       <div class="reveal" style="transition-delay:.15s">
@@ -734,21 +466,21 @@
             <div class="tip-num">01</div>
             <div class="tip-text">
               <strong>Get morning light early</strong>
-              <p>10–15 minutes of natural light within an hour of waking anchors your circadian rhythm, improves mood, and supports better sleep at night.</p>
+              <p>10–15 minutes of natural light within an hour of waking anchors your circadian rhythm and supports better sleep.</p>
             </div>
           </div>
           <div class="tip-row">
             <div class="tip-num">02</div>
             <div class="tip-text">
               <strong>Walk after meals</strong>
-              <p>A short post-meal walk — even 10 minutes — reduces blood sugar spikes and supports digestion. Simple, consistent, and effective.</p>
+              <p>A short post-meal walk — even 10 minutes — reduces blood sugar spikes and supports digestion.</p>
             </div>
           </div>
           <div class="tip-row">
             <div class="tip-num">03</div>
             <div class="tip-text">
               <strong>Name what you feel</strong>
-              <p>Research shows that labeling emotions — "I feel anxious" rather than "I feel bad" — meaningfully reduces their intensity.</p>
+              <p>Research shows that labeling emotions — "I feel anxious" — meaningfully reduces their intensity.</p>
             </div>
           </div>
           <div class="tip-row">
@@ -762,7 +494,7 @@
             <div class="tip-num">05</div>
             <div class="tip-text">
               <strong>Reduce morning allergy exposure</strong>
-              <p>Pollen is highest between 5–10am. Rinse hair before bed, shower after time outdoors, and keep windows closed in the early morning.</p>
+              <p>Pollen is highest between 5–10am. Rinse hair before bed and keep windows closed in the early morning.</p>
             </div>
           </div>
         </div>
@@ -774,77 +506,42 @@
 <!-- Mental Health Spotlight -->
 <section class="spotlight" id="spotlight" aria-labelledby="spotlight-h">
   <div class="container">
-    <div class="spotlight-header reveal">
+    <div class="section-header reveal">
       <p class="eyebrow">May 2026 Spotlight</p>
       <h2 class="section-title" id="spotlight-h">Mental Health Awareness Month</h2>
-      <div class="divider" style="background:rgba(255,255,255,.18)"></div>
-      <p class="section-body">We treat anxiety, depression, and insomnia as part of our standard primary care scope. Here's what we think every patient should know this May.</p>
+      <div class="divider"></div>
+      <p class="section-body">We treat anxiety, depression, and insomnia as part of our standard primary care scope. Here's what every patient should know this May.</p>
     </div>
     <div class="spotlight-grid">
-      <div class="spotlight-card reveal" style="transition-delay:.05s">
+      <div class="spotlight-card reveal">
         <div class="icon">💬</div>
         <div class="card-title">You Don't Need a Crisis to Come In</div>
-        <div class="card-body">Mental health care works best as ongoing care, not reactive care. If stress, low mood, or anxiety has been affecting your daily life for a couple of weeks, that's reason enough to schedule a visit.</div>
+        <div class="card-body">Mental health care works best as ongoing care. If stress or low mood has been affecting your daily life for a couple of weeks, that's reason enough to schedule a visit.</div>
       </div>
-      <div class="spotlight-card reveal" style="transition-delay:.10s">
+      <div class="spotlight-card reveal" style="transition-delay:.05s">
         <div class="icon">🧘</div>
-        <div class="card-title">Anxiety, Depression & Insomnia Are Treated Here</div>
+        <div class="card-title">Anxiety, Depression &amp; Insomnia Are Treated Here</div>
         <div class="card-body">Our providers offer care for anxiety, depression, and sleep disorders — including medication management and referrals to behavioral health specialists when appropriate.</div>
       </div>
-      <div class="spotlight-card reveal" style="transition-delay:.15s">
+      <div class="spotlight-card reveal" style="transition-delay:.10s">
         <div class="icon">🤝</div>
         <div class="card-title">Stress Management Is a Medical Issue</div>
-        <div class="card-body">Chronic stress affects cardiovascular health, immune function, blood sugar, and sleep. We address it as part of a comprehensive care plan — not a side conversation.</div>
+        <div class="card-body">Chronic stress affects cardiovascular health, immune function, blood sugar, and sleep. We address it as part of a comprehensive care plan.</div>
       </div>
-      <div class="spotlight-card reveal" style="transition-delay:.20s">
+      <div class="spotlight-card reveal" style="transition-delay:.15s">
         <div class="icon">😴</div>
         <div class="card-title">Sleep and Mental Health Are Deeply Connected</div>
-        <div class="card-body">Poor sleep is both a symptom and a driver of mental health challenges. If you're not sleeping well, talk to your provider — it's one of the most impactful things we can address together.</div>
+        <div class="card-body">Poor sleep is both a symptom and a driver of mental health challenges. Talk to your provider — it's one of the most impactful things we can address together.</div>
       </div>
-      <div class="spotlight-card reveal" style="transition-delay:.25s">
+      <div class="spotlight-card reveal" style="transition-delay:.20s">
         <div class="icon">🌿</div>
         <div class="card-title">Hormones Can Affect Mood Too</div>
-        <div class="card-body">Hormone imbalances — especially during perimenopause or menopause — can significantly affect mood, energy, and cognition. Our bio-identical hormone therapy program may be worth discussing.</div>
+        <div class="card-body">Hormone imbalances — especially during perimenopause or menopause — can significantly affect mood, energy, and cognition. Ask about our BIHT program.</div>
       </div>
-      <div class="spotlight-card reveal" style="transition-delay:.30s">
+      <div class="spotlight-card reveal" style="transition-delay:.25s">
         <div class="icon">📋</div>
         <div class="card-title">When to Reach Out for Help</div>
-        <div class="card-body">For a crisis, call or text 988 (Suicide & Crisis Lifeline). For everything else — burnout, mood changes, ongoing stress — we're here. Call us at <a href="tel:4238674969" style="color:var(--gold-light)">(423) 867-4969</a>.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Seasonal Nutrition -->
-<section class="nutrition" id="nutrition" aria-labelledby="nutrition-h">
-  <div class="container">
-    <div class="nutrition-layout">
-      <div class="reveal">
-        <p class="eyebrow">Spring Nutrition</p>
-        <h2 class="section-title" id="nutrition-h">What's Fresh<br />& Good for You Now</h2>
-        <div class="divider"></div>
-        <p class="section-body" style="margin-bottom:24px">May's harvest is nutrient-dense, anti-inflammatory, and at peak season. Eating with the calendar is one of the most practical nutrition habits we recommend.</p>
-        <div class="food-grid">
-          <div class="food-tile"><div class="emoji">🌿</div><div class="fname">Asparagus</div><div class="fnote">Folate & prebiotic fiber</div></div>
-          <div class="food-tile"><div class="emoji">🍓</div><div class="fname">Strawberries</div><div class="fnote">Vitamin C & antioxidants</div></div>
-          <div class="food-tile"><div class="emoji">🥬</div><div class="fname">Spinach</div><div class="fnote">Iron, magnesium & B vitamins</div></div>
-          <div class="food-tile"><div class="emoji">🫛</div><div class="fname">Snap Peas</div><div class="fnote">Plant protein & fiber</div></div>
-          <div class="food-tile"><div class="emoji">🌱</div><div class="fname">Radishes</div><div class="fnote">Digestive support</div></div>
-          <div class="food-tile"><div class="emoji">🌿</div><div class="fname">Fresh Herbs</div><div class="fnote">Anti-inflammatory compounds</div></div>
-        </div>
-      </div>
-      <div class="reveal" style="transition-delay:.15s">
-        <div class="food-feature">
-          <div class="pre">Spring Recipe Spotlight</div>
-          <h3>Strawberry & Spinach Power Salad</h3>
-          <p>Fresh spinach, sliced strawberries, candied walnuts, red onion, and goat cheese with a balsamic-honey vinaigrette. Ready in 10 minutes. Rich in folate, vitamin C, and healthy fats that support brain health and reduce inflammation.</p>
-          <div class="food-tags">
-            <span class="food-tag">Gluten-Free</span>
-            <span class="food-tag">Anti-Inflammatory</span>
-            <span class="food-tag">10 Minutes</span>
-            <span class="food-tag">Brain Health</span>
-          </div>
-        </div>
+        <div class="card-body">For a crisis, call or text <strong style="color:#fde68a">988</strong> (Suicide &amp; Crisis Lifeline). For everything else — burnout, mood changes, ongoing stress — we're here at <a href="tel:4238674969">(423) 867-4969</a>.</div>
       </div>
     </div>
   </div>
@@ -854,21 +551,14 @@
 <section class="newsletter" id="newsletter" aria-labelledby="nl-h">
   <div class="container">
     <div class="nl-box reveal">
-      <div class="nl-icon" aria-hidden="true">🌿</div>
+      <p style="font-size:1.9rem;margin-bottom:12px">🌿</p>
       <h2 class="nl-title" id="nl-h">A Weekly Note on Good Health</h2>
       <p class="nl-sub">Seasonal wellness tips, health reminders, and occasional clinic updates — delivered every Tuesday. No clutter, no spam.</p>
-      <div class="nl-form" role="form" aria-label="Newsletter signup">
-        <label for="nlEmail" class="sr-only">Email address</label>
+      <div class="nl-form">
         <input class="nl-input" type="email" id="nlEmail" placeholder="Your email address" autocomplete="email" />
         <button class="nl-btn" id="nlBtn" type="button">Subscribe</button>
       </div>
-      <p class="nl-fine">Unsubscribe anytime. We respect your privacy and won't share your information.</p>
-      <div class="nl-perks" aria-hidden="true">
-        <div class="nl-perk"><span class="nl-perk-dot"></span>Weekly wellness tips</div>
-        <div class="nl-perk"><span class="nl-perk-dot"></span>Seasonal health guides</div>
-        <div class="nl-perk"><span class="nl-perk-dot"></span>Clinic news & updates</div>
-        <div class="nl-perk"><span class="nl-perk-dot"></span>Always free</div>
-      </div>
+      <p class="nl-fine">Unsubscribe anytime. We respect your privacy.</p>
     </div>
   </div>
 </section>
@@ -888,9 +578,7 @@
             <span class="cd-icon">📍</span>
             <div>
               <div class="cd-label">Address</div>
-              <div class="cd-value">
-                1508 Tombras Ave, Chattanooga, TN 37412
-              </div>
+              <div class="cd-value">1508 Tombras Ave, Chattanooga, TN 37412</div>
             </div>
           </div>
           <div class="cd">
@@ -904,14 +592,14 @@
             <span class="cd-icon">🩺</span>
             <div>
               <div class="cd-label">Services</div>
-              <div class="cd-value">Primary Care · Home Medical Care · Hormone Therapy · Medical Weight Loss · Aesthetics</div>
+              <div class="cd-value">Primary Care · Home Medical Care · Hormone Therapy · Medical Weight Loss · Aesthetics · Regenerative Medicine</div>
             </div>
           </div>
           <div class="cd">
-            <span class="cd-icon">🌐</span>
+            <span class="cd-icon">👥</span>
             <div>
-              <div class="cd-label">Aesthetics</div>
-              <div class="cd-value"><a href="#contact" onclick="closeModal('servicesModal')">Medical Aesthetics — CoolSculpting &amp; Injectables</div>
+              <div class="cd-label">Our Team</div>
+              <div class="cd-value"><a href="team.html">Bruce Pendley MD · Randy Heisser MD · Dr. Laurie Davis DNP · Melissa Rader FNP</a></div>
             </div>
           </div>
         </div>
@@ -927,18 +615,12 @@
         <div class="map-embed">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.5382!2d-85.2607!3d35.0107!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88605e6d8fabef0f%3A0x93dcd7e0a2f14b2c!2s1508%20Tombras%20Ave%2C%20Chattanooga%2C%20TN%2037412!5e0!3m2!1sen!2sus!4v1714500000000!5m2!1sen!2sus"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="In Good Health — 1508 Tombras Ave, Chattanooga TN"
-            aria-label="Google Maps pin for In Good Health, 1508 Tombras Ave, Chattanooga TN"
-          ></iframe>
+            allowfullscreen="" loading="lazy"
+            title="In Good Health — 1508 Tombras Ave, Chattanooga TN">
+          </iframe>
         </div>
         <p style="margin-top:12px;text-align:center">
-          <a href="https://maps.google.com/?q=1508+Tombras+Ave+Chattanooga+TN+37412"
-             target="_blank" rel="noopener"
-             class="btn btn-ghost"
-             style="font-size:0.8rem;padding:9px 20px">
+          <a href="https://maps.google.com/?q=1508+Tombras+Ave+Chattanooga+TN+37412" target="_blank" rel="noopener" class="btn btn-ghost" style="font-size:0.8rem;padding:9px 20px">
             📍 Get Directions in Google Maps
           </a>
         </p>
@@ -948,28 +630,28 @@
 </section>
 
 <!-- Disclaimer -->
-<div class="disclaimer" role="note">
+<div class="disclaimer">
   * In Good Health offers no guarantee of specific results and results may vary from patient to patient.
   For medical emergencies, call 911 or visit your nearest emergency room.
 </div>
 
 <!-- Footer -->
-<footer role="contentinfo">
+<footer>
   <div class="footer-inner">
     <div class="footer-top">
       <div>
         <div class="footer-brand">In Good Health</div>
-        <p class="footer-about">Primary care and specialty health services for the Chattanooga community.</p>
+        <p class="footer-tagline">Primary care and specialty health services for the Chattanooga community. 1508 Tombras Ave · (423) 867-4969</p>
       </div>
       <div class="footer-col">
         <h4>Services</h4>
         <ul>
-          <li><a href="#primary-care">Primary Care</a></li>
-          <li><a href="#home-care">Home Medical Care</a></li>
-          <li><a href="#hormones">Hormone Therapy</a></li>
-          <li><a href="#weight-loss">Medical Weight Loss</a></li>
-          <li><a href="#aesthetics">Vaginal Rejuvenation</a></li>
-          <li><a href="#stem-cell">Stem Cell Therapy</a></li>
+          <li><a href="#services">Primary Care</a></li>
+          <li><a href="#services">Home Medical Care</a></li>
+          <li><a href="#services">Hormone Therapy</a></li>
+          <li><a href="#services">Medical Weight Loss</a></li>
+          <li><a href="#services">Stem Cell Therapy</a></li>
+          <li><a href="#services">Medical Aesthetics</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -977,7 +659,7 @@
         <ul>
           <li><a href="#spotlight">Mental Health Month</a></li>
           <li><a href="#topics">Outdoor Fitness</a></li>
-          <li><a href="#nutrition">Spring Nutrition</a></li>
+          <li><a href="#topics">Spring Nutrition</a></li>
           <li><a href="#topics">Allergy Care</a></li>
           <li><a href="#tips">Wellness Tips</a></li>
         </ul>
@@ -986,159 +668,23 @@
         <h4>Connect</h4>
         <ul>
           <li><a href="tel:4238674969">(423) 867-4969</a></li>
-          <li><a href="index.html#contact">Contact Us</a></li>
+          <li><a href="#contact">Contact Us</a></li>
           <li><a href="team.html">Our Team</a></li>
-          <li><a href="#aesthetics">Aesthetics</a></li>
-          
+          <li><a href="appointment.html">Book Appointment</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 In Good Health · 1508 Tombras Ave, Chattanooga, TN 37412</span>
-      <span>In Good Health · All Rights Reserved</span>
+      <span>All Rights Reserved</span>
     </div>
   </div>
 </footer>
 
-
-<!-- ── APPOINTMENT MODAL ─────────────────────────────────── -->
-<div class="modal-overlay" id="apptModal" role="dialog" aria-modal="true" aria-labelledby="apptModalTitle">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('apptModal')" aria-label="Close">✕</button>
-    <div class="modal-header">
-      <h2 id="apptModalTitle">Request an Appointment</h2>
-      <p>In Good Health · Chattanooga, TN · (423) 867-4969</p>
-    </div>
-    <div class="modal-body">
-      <p>The fastest way to schedule is to call us directly. You can also send a request below and our team will follow up within one business day.</p>
-      <a class="modal-option" href="tel:4238674969">
-        <div class="modal-option-icon" style="background:var(--sage-pale)">📞</div>
-        <div><strong>Call Us Now</strong><span>(423) 867-4969 — fastest option</span></div>
-      </a>
-      <div class="modal-divider">or send a request</div>
-      <div id="apptFormWrap">
-        <div class="form-row">
-          <div class="form-group"><label for="af-first">First Name</label><input type="text" id="af-first" placeholder="Jane" autocomplete="given-name" /></div>
-          <div class="form-group"><label for="af-last">Last Name</label><input type="text" id="af-last" placeholder="Smith" autocomplete="family-name" /></div>
-        </div>
-        <div class="form-row">
-          <div class="form-group"><label for="af-phone">Phone Number</label><input type="tel" id="af-phone" placeholder="(423) 555-0100" autocomplete="tel" /></div>
-          <div class="form-group"><label for="af-email">Email</label><input type="email" id="af-email" placeholder="jane@email.com" autocomplete="email" /></div>
-        </div>
-        <div class="form-group">
-          <label for="af-service">Reason for Visit</label>
-          <select id="af-service">
-            <option value="">— select —</option>
-            <option>New patient / Primary care</option>
-            <option>Hormone therapy (BIHT)</option>
-            <option>Medical weight loss</option>
-            <option>Allergy / Asthma</option>
-            <option>Mental health / Anxiety / Depression</option>
-            <option>Annual wellness exam</option>
-            <option>Home medical care</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="af-provider">Preferred Provider (optional)</label>
-          <select id="af-provider">
-            <option value="">No preference</option>
-            <option>Bruce Pendley, MD</option>
-            <option>Randy Heisser, MD</option>
-            <option>Dr. Laurie Davis, DNP, FNP</option>
-            <option>Melissa Rader, FNP</option>
-          </select>
-        </div>
-        <div class="form-group"><label for="af-notes">Anything else we should know?</label><textarea id="af-notes" placeholder="Optional notes..."></textarea></div>
-        <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="submitAppt()">Send Request</button>
-        <p class="form-note">* This form does not create a confirmed appointment. Our team will contact you to confirm your visit. For urgent matters, please call us directly at <a href="tel:4238674969">(423) 867-4969</a>.</p>
-      </div>
-      <div class="form-success" id="apptSuccess">
-        <p>✅ <strong>Request received!</strong><br />Our team will call or email you within one business day to confirm your appointment. For faster service, call <a href="tel:4238674969">(423) 867-4969</a>.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ── SERVICES INFO MODAL ────────────────────────────────── -->
-<div class="modal-overlay" id="servicesModal" role="dialog" aria-modal="true" aria-labelledby="servicesModalTitle">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('servicesModal')" aria-label="Close">✕</button>
-    <div class="modal-header">
-      <h2 id="servicesModalTitle">All Services</h2>
-      <p>In Good Health · Primary Care &amp; Specialty Services</p>
-    </div>
-    <div class="modal-body">
-      <a class="modal-option" href="#services" onclick="closeModal('servicesModal')">
-        <div class="modal-option-icon" style="background:var(--sage-pale)">🩺</div>
-        <div><strong>Primary Care</strong><span>Exams, preventive care, chronic disease, mental health, allergy &amp; more</span></div>
-      </a>
-      <a class="modal-option" href="#services" onclick="closeModal('servicesModal')">
-        <div class="modal-option-icon" style="background:var(--peach-pale)">🏠</div>
-        <div><strong>Home Medical Care</strong><span>Physician care for aging patients in the comfort of home</span></div>
-      </a>
-      <a class="modal-option" href="#services" onclick="closeModal('servicesModal')">
-        <div class="modal-option-icon" style="background:#fef9e7">⚖️</div>
-        <div><strong>Bio-Identical Hormone Therapy</strong><span>Restore hormone balance — energy, mood, weight, quality of life</span></div>
-      </a>
-      <a class="modal-option" href="#services" onclick="closeModal('servicesModal')">
-        <div class="modal-option-icon" style="background:var(--sage-pale)">🌱</div>
-        <div><strong>Medical Weight Loss</strong><span>Physician-supervised, structured weight loss program</span></div>
-      </a>
-      <a class="modal-option" href="#services" onclick="closeModal('servicesModal')">
-        <div class="modal-option-icon" style="background:#eaf4f1">💫</div>
-        <div><strong>Vaginal Rejuvenation (Empower)</strong><span>Non-surgical treatment for feminine wellness</span></div>
-      </a>
-      <a class="modal-option" href="#services" onclick="closeModal('servicesModal')">
-        <div class="modal-option-icon" style="background:var(--peach-pale)">🔬</div>
-        <div><strong>Stem Cell Therapy</strong><span>Regenerative treatment options in Chattanooga</span></div>
-      </a>
-      <a class="modal-option" href="#services" onclick="closeModal('servicesModal')">
-        <div class="modal-option-icon" style="background:var(--sage-pale)">💉</div>
-        <div><strong>Peptide Therapy</strong><span>Targeted peptide protocols for performance &amp; recovery</span></div>
-      </a>
-      <a class="modal-option" href="#contact" onclick="closeModal('servicesModal')">
-        <div class="modal-option-icon" style="background:#fef3ec">✨</div>
-        <div><strong>Medical Aesthetics</strong><span>CoolSculpting, Botox, fillers &amp; more — sister site</span></div>
-      </a>
-    </div>
-  </div>
-</div>
-
-<!-- ── MAY WELLNESS INFO MODAL ────────────────────────────── -->
-<div class="modal-overlay" id="wellnessModal" role="dialog" aria-modal="true" aria-labelledby="wellnessModalTitle">
-  <div class="modal" style="max-width:600px">
-    <button class="modal-close" onclick="closeModal('wellnessModal')" aria-label="Close">✕</button>
-    <div class="modal-header">
-      <h2 id="wellnessModalTitle">May Wellness Topics</h2>
-      <p>Mental Health Awareness Month · Spring 2026</p>
-    </div>
-    <div class="modal-body">
-      <p>May is Mental Health Awareness Month. At In Good Health, we treat anxiety, depression, and insomnia as part of our primary care scope — no referral needed to start the conversation.</p>
-      <a class="modal-option" href="#spotlight" onclick="closeModal('wellnessModal')">
-        <div class="modal-option-icon" style="background:var(--sage-pale)">🧠</div>
-        <div><strong>Mental Health Resources</strong><span>What we treat, when to come in, crisis support</span></div>
-      </a>
-      <a class="modal-option" href="#tips" onclick="closeModal('wellnessModal')">
-        <div class="modal-option-icon" style="background:var(--peach-pale)">🌿</div>
-        <div><strong>Five May Wellness Tips</strong><span>Morning light, post-meal walks, hydration & more</span></div>
-      </a>
-      <a class="modal-option" href="#nutrition" onclick="closeModal('wellnessModal')">
-        <div class="modal-option-icon" style="background:#fef9e7">🥗</div>
-        <div><strong>Spring Nutrition Guide</strong><span>What's in season &amp; how to make it work for you</span></div>
-      </a>
-      <a class="modal-option" href="tel:4238674969">
-        <div class="modal-option-icon" style="background:var(--sage-pale)">📞</div>
-        <div><strong>Talk to Your Provider</strong><span>Call (423) 867-4969 to schedule a wellness visit</span></div>
-      </a>
-    </div>
-  </div>
-</div>
-
 <div class="toast" id="toast" role="status" aria-live="polite">🌿 You're subscribed — check your inbox soon.</div>
 
 <script>
-  // Reading progress
+  // Reading progress bar
   const prog = document.getElementById('progress');
   window.addEventListener('scroll', () => {
     const d = document.documentElement;
@@ -1148,7 +694,7 @@
   // Scroll reveal
   const revealObserver = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
   // Mobile nav
@@ -1166,7 +712,7 @@
     document.body.style.overflow = '';
   }
   document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
+    if (e.key === 'Escape') closeDrawer();
   });
 
   // Newsletter
@@ -1174,47 +720,11 @@
   document.getElementById('nlEmail').addEventListener('keydown', e => {
     if (e.key === 'Enter') handleSubscribe();
   });
-
-  // Modal system
-  function openModal(id) {
-    document.getElementById(id).classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeModal(id) {
-    document.getElementById(id).classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  // Close modal on backdrop click
-  document.querySelectorAll('.modal-overlay').forEach(overlay => {
-    overlay.addEventListener('click', e => {
-      if (e.target === overlay) closeModal(overlay.id);
-    });
-  });
-  // Close modals on Escape
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') {
-      document.querySelectorAll('.modal-overlay.open').forEach(m => closeModal(m.id));
-    }
-  });
-
-  // Appointment form submission
-  function submitAppt() {
-    const first = document.getElementById('af-first').value.trim();
-    const phone = document.getElementById('af-phone').value.trim();
-    const service = document.getElementById('af-service').value;
-    if (!first || !phone || !service) {
-      alert('Please fill in your name, phone number, and reason for visit.');
-      return;
-    }
-    document.getElementById('apptFormWrap').style.display = 'none';
-    document.getElementById('apptSuccess').classList.add('show');
-  }
-
   function handleSubscribe() {
     const input = document.getElementById('nlEmail');
     const val = input.value.trim();
     if (!val || !val.includes('@') || !val.includes('.')) {
-      input.style.outline = '2px solid var(--peach)';
+      input.style.outline = '2px solid #D4845A';
       input.focus();
       return;
     }
