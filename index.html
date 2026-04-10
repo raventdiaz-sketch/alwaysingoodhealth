@@ -29,6 +29,17 @@
       --radius:     14px;
       --shadow:     0 4px 22px rgba(14,77,122,0.10);
     }
+    .nav-logo {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 8px;
+  padding: 4px 8px;
+  transition: background .2s;
+  text-decoration: none;
+}
+.nav-logo:hover { background: rgba(14, 77, 122, 0.07); }
+.nav-logo:active { background: rgba(14, 77, 122, 0.13); }
+.nav-logo img { height: 46px; width: auto; display: block; }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body { font-family: var(--ff-sans); background: var(--cream); color: var(--ink); overflow-x: hidden; line-height: 1.65; -webkit-font-smoothing: antialiased; }
@@ -255,10 +266,9 @@
 <!-- Nav -->
 <nav aria-label="Main navigation">
   <div class="nav-inner">
-    <a href="#" class="nav-brand">
-      In Good Health
-      <small>Primary Care · Chattanooga, TN</small>
-    </a>
+   <a href="index.html" class="nav-logo" title="In Good Health — Home">
+  <img src="data:image/png;base64,PASTE_BASE64_HERE" alt="In Good Health – Better health for the whole family" />
+</a>
     <div class="nav-links">
       <a href="#services">Services</a>
       <a href="team.html">Our Team</a>
